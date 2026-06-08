@@ -1,6 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { CalendarDays, Clock, MapPin, Swords, X } from "lucide-react";
+import {
+  CalendarDays,
+  Clock,
+  Flame,
+  MapPin,
+  Radio,
+  ShieldCheck,
+  Swords,
+  X,
+} from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Match Schedule",
@@ -47,6 +56,43 @@ const COUNTRY_CODE_FOR_FLAG: Record<string, string> = {
   CAN: "CAN",
   MEX: "MEX",
 };
+
+const FEATURED_FIXTURES = [
+  {
+    phase: "Opening Night",
+    date: "11 Jun",
+    time: "20:00 UTC",
+    market: "First goal before 27:00",
+    venue: "Estadio Azteca, Mexico City",
+    teams: ["MEX", "TBD"],
+    price: "61%",
+  },
+  {
+    phase: "Host Watch",
+    date: "12 Jun",
+    time: "01:00 UTC",
+    market: "USA opens with 2+ goals",
+    venue: "SoFi Stadium, Los Angeles",
+    teams: ["USA", "TBD"],
+    price: "48%",
+  },
+  {
+    phase: "Northern Line",
+    date: "12 Jun",
+    time: "22:00 UTC",
+    market: "Canada clean sheet",
+    venue: "BMO Field, Toronto",
+    teams: ["CAN", "TBD"],
+    price: "34%",
+  },
+];
+
+const SCHEDULE_MARKETS = [
+  { label: "Busiest matchday", value: "24 fixtures", note: "Group finale windows" },
+  { label: "Fastest lock", value: "15 min", note: "Predictions freeze at kickoff" },
+  { label: "Prime host window", value: "21:00 UTC", note: "North America evening slate" },
+  { label: "Knockout swing", value: "R32", note: "32 teams enter the bracket board" },
+];
 
 export default async function FixturesPage({
   searchParams,
@@ -181,7 +227,9 @@ export default async function FixturesPage({
 
         <div className="flex items-center justify-between border-t border-border/40 pt-3 text-xs text-muted-foreground">
           <span>
-            {matches.length} {matches.length === 1 ? "match" : "matches"} found
+            {matches.length > 0
+              ? `${matches.length} ${matches.length === 1 ? "match" : "matches"} found`
+              : "Sample schedule board"}
           </span>
           {hasFilters && (
             <Link
@@ -196,9 +244,7 @@ export default async function FixturesPage({
 
       {/* Match list grouped by day */}
       {days.length === 0 ? (
-        <div className="rounded-xl border border-border/60 bg-card/60 p-12 text-center text-sm text-muted-foreground">
-          No matches match the filters.
-        </div>
+        <ScheduleFallback hasFilters={hasFilters} />
       ) : (
         <div className="space-y-6">
           {days.map((day) => {
@@ -217,6 +263,136 @@ export default async function FixturesPage({
         </div>
       )}
     </main>
+  );
+}
+
+function ScheduleFallback({ hasFilters }: { hasFilters: boolean }) {
+  return (
+    <div className="space-y-5">
+      {hasFilters && (
+        <div className="rounded-xl border border-border/60 bg-card/60 p-4 text-sm text-muted-foreground backdrop-blur">
+          No official fixtures match the current filters, so this board is showing
+          sample World Cup 2026 schedule markets.
+        </div>
+      )}
+
+      <section className="terminal-card overflow-hidden rounded-2xl">
+        <div className="border-b border-border/40 bg-background/35 px-4 py-3">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+                <Radio className="size-3.5 text-primary" />
+                featured schedule board
+              </div>
+              <h2 className="mt-1 font-display text-2xl font-bold">
+                World Cup 2026 kickoff windows
+              </h2>
+            </div>
+            <Badge className="bg-primary text-primary-foreground">
+              sample markets
+            </Badge>
+          </div>
+        </div>
+
+        <div className="grid gap-3 p-4 lg:grid-cols-3">
+          {FEATURED_FIXTURES.map((fixture) => (
+            <div
+              key={fixture.phase}
+              className="rounded-xl border border-border/60 bg-white/55 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.9)]"
+            >
+              <div className="flex items-center justify-between gap-3">
+                <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+                  {fixture.phase}
+                </div>
+                <div className="rounded-full bg-primary/10 px-2 py-0.5 font-mono text-[10px] font-semibold text-primary">
+                  {fixture.price}
+                </div>
+              </div>
+              <div className="mt-4 flex items-center justify-between">
+                <TeamToken code={fixture.teams[0]} />
+                <span className="font-display text-sm font-semibold text-muted-foreground">
+                  vs
+                </span>
+                <TeamToken code={fixture.teams[1]} />
+              </div>
+              <div className="mt-4 rounded-lg border border-border/50 bg-background/45 p-3">
+                <div className="font-display text-base font-semibold">
+                  {fixture.market}
+                </div>
+                <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] text-muted-foreground">
+                  <span className="inline-flex items-center gap-1">
+                    <CalendarDays className="size-3" />
+                    {fixture.date}
+                  </span>
+                  <span className="inline-flex items-center gap-1">
+                    <Clock className="size-3" />
+                    {fixture.time}
+                  </span>
+                </div>
+              </div>
+              <div className="mt-3 flex items-center gap-1.5 text-[11px] text-muted-foreground">
+                <MapPin className="size-3" />
+                <span className="truncate">{fixture.venue}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        {SCHEDULE_MARKETS.map((item) => (
+          <div
+            key={item.label}
+            className="rounded-xl border border-border/60 bg-card/60 p-4 backdrop-blur"
+          >
+            <div className="flex items-center gap-2 text-muted-foreground">
+              <ShieldCheck className="size-4 text-primary" />
+              <span className="text-[10px] font-semibold uppercase tracking-[0.16em]">
+                {item.label}
+              </span>
+            </div>
+            <div className="mt-2 font-display text-2xl font-bold">
+              {item.value}
+            </div>
+            <p className="mt-1 text-xs text-muted-foreground">{item.note}</p>
+          </div>
+        ))}
+      </section>
+
+      <section className="rounded-2xl border border-border/60 bg-card/60 p-4 backdrop-blur">
+        <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+          <Flame className="size-3.5 text-[color:var(--gold)]" />
+          schedule angles
+        </div>
+        <div className="mt-3 grid gap-3 sm:grid-cols-3">
+          <Angle title="Host pressure" text="Track USA, Canada and Mexico windows separately as public sentiment moves around each kickoff." />
+          <Angle title="Rest advantage" text="Compare teams with four-day breaks against opponents coming off compressed travel." />
+          <Angle title="Bracket path" text="The Round of 32 starts the real volatility: one bad pick can move an entire champion route." />
+        </div>
+      </section>
+    </div>
+  );
+}
+
+function TeamToken({ code }: { code: string }) {
+  return (
+    <div className="flex items-center gap-2 rounded-full border border-border/50 bg-background/55 px-2.5 py-1">
+      {code === "TBD" ? (
+        <div className="h-4 w-6 rounded-sm border border-dashed border-border/70" />
+      ) : (
+        <Flag code={code} size="xs" />
+      )}
+      <span className="font-mono text-[11px] font-semibold">{code}</span>
+    </div>
+  );
+}
+
+function Angle({ title, text }: { title: string; text: string }) {
+  return (
+    <div className="rounded-xl border border-border/50 bg-background/45 p-3">
+      <div className="font-display text-sm font-semibold">{title}</div>
+      <p className="mt-1 text-xs leading-5 text-muted-foreground">{text}</p>
+    </div>
   );
 }
 

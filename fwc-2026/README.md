@@ -60,8 +60,8 @@ Designed for playing **with friends**, with a transparent scoring system and a f
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/DavidSepulvedaCh/FWC_2026.git
-cd FWC_2026
+git clone https://github.com/DavidSepulvedaCh/Polymatch.git
+cd Polymatch
 
 # 2. Install dependencies (triggers prisma generate in postinstall)
 npm install

@@ -1,6 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Crown, Plus, Users } from "lucide-react";
+import {
+  ArrowRight,
+  CalendarDays,
+  Crown,
+  Plus,
+  ShieldCheck,
+  Trophy,
+  Users,
+} from "lucide-react";
 import { prisma } from "@/lib/prisma";
 import { requireUser } from "@/lib/session";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -13,6 +21,27 @@ export const metadata: Metadata = {
   description: "Create private leagues or join with a code to compete with friends and family in Polymatch.",
   alternates: { canonical: "/leagues" },
 };
+
+const LEAGUE_TEMPLATES = [
+  {
+    title: "Office bracket desk",
+    members: "12-24 players",
+    prize: "Champion route bonus",
+    note: "Best for daily standings and quick matchday banter.",
+  },
+  {
+    title: "Family host pool",
+    members: "6-10 players",
+    prize: "Golden boot pick",
+    note: "Simple private code, clean leaderboard, low setup time.",
+  },
+  {
+    title: "Analyst market room",
+    members: "20+ players",
+    prize: "Upset multiplier",
+    note: "Great for prediction markets and deep fixture debates.",
+  },
+];
 
 export default async function LeaguesPage() {
   const user = await requireUser();
@@ -73,12 +102,54 @@ export default async function LeaguesPage() {
         </h2>
 
         {memberships.length === 0 ? (
-          <Card className="border-dashed border-border/60 bg-card/30">
-            <CardContent className="flex flex-col items-center gap-2 py-10 text-center">
-              <Users className="size-8 text-muted-foreground" />
-              <p className="text-sm text-muted-foreground">
-                You are not in any private league yet. Create one or join with a code.
-              </p>
+          <Card className="border-border/60 bg-card/60 backdrop-blur">
+            <CardContent className="space-y-5 py-5">
+              <div className="rounded-xl border border-primary/25 bg-primary/10 p-4">
+                <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">
+                  <Users className="size-3.5" />
+                  private pool preview
+                </div>
+                <h3 className="mt-2 font-display text-xl font-bold">
+                  Build a World Cup market room in one code
+                </h3>
+                <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                  Create a league for friends, office groups or family brackets.
+                  Every pool gets its own leaderboard, invite code and champion
+                  pick narrative.
+                </p>
+              </div>
+
+              <div className="grid gap-3 lg:grid-cols-3">
+                {LEAGUE_TEMPLATES.map((template) => (
+                  <div
+                    key={template.title}
+                    className="rounded-xl border border-border/60 bg-background/40 p-4"
+                  >
+                    <div className="flex items-center justify-between gap-3">
+                      <Trophy className="size-4 text-[color:var(--gold)]" />
+                      <Badge variant="secondary" className="text-[10px]">
+                        {template.members}
+                      </Badge>
+                    </div>
+                    <div className="mt-3 font-display text-base font-semibold">
+                      {template.title}
+                    </div>
+                    <div className="mt-2 flex items-center gap-2 text-xs text-primary">
+                      <ShieldCheck className="size-3.5" />
+                      {template.prize}
+                    </div>
+                    <p className="mt-2 text-xs leading-5 text-muted-foreground">
+                      {template.note}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="grid gap-3 sm:grid-cols-3">
+                <PoolStat icon={<CalendarDays className="size-4" />} label="Match windows" value="104" />
+                <PoolStat icon={<Trophy className="size-4" />} label="Bonus picks" value="6" />
+                <PoolStat icon={<Users className="size-4" />} label="Invite code" value="Private" />
+              </div>
             </CardContent>
           </Card>
         ) : (
@@ -132,5 +203,27 @@ export default async function LeaguesPage() {
         </Link>
       </div>
     </main>
+  );
+}
+
+function PoolStat({
+  icon,
+  label,
+  value,
+}: {
+  icon: React.ReactNode;
+  label: string;
+  value: string;
+}) {
+  return (
+    <div className="rounded-xl border border-border/60 bg-background/40 p-3">
+      <div className="flex items-center gap-2 text-muted-foreground">
+        {icon}
+        <span className="text-[10px] font-semibold uppercase tracking-[0.16em]">
+          {label}
+        </span>
+      </div>
+      <div className="mt-2 font-display text-xl font-bold">{value}</div>
+    </div>
   );
 }

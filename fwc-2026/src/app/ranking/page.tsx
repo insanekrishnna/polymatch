@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Medal, Trophy, TrendingUp } from "lucide-react";
+import { Medal, ShieldCheck, Trophy, TrendingUp, Users } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 
 export const metadata: Metadata = {
   title: "Leaderboard",
   description:
-    "Live leaderboard of the 2026 World Cup Predictions pool. See who's leading among your friends based on correct predictions.",
+    "Live leaderboard for Polymatch. See who's leading among your friends based on correct predictions.",
   alternates: { canonical: "/ranking" },
   openGraph: {
     title: "Leaderboard - Polymatch",
@@ -23,6 +23,18 @@ import {
   type Confederation,
 } from "@/components/confederation-chip";
 import { cn } from "@/lib/utils";
+
+const SAMPLE_LEADERS = [
+  { name: "Bracket Syndicate", handle: "@sample_alpha", points: 186, predictions: 72, pick: "BRA", trend: "+18" },
+  { name: "North Stand XI", handle: "@sample_beta", points: 174, predictions: 70, pick: "FRA", trend: "+12" },
+  { name: "Penalty Model", handle: "@sample_gamma", points: 161, predictions: 68, pick: "ARG", trend: "+9" },
+];
+
+const LEADERBOARD_MARKETS = [
+  { label: "Perfect group card", value: "72 picks", note: "Full group-stage sheet" },
+  { label: "Champion bonus", value: "+25 pts", note: "Sample pool setting" },
+  { label: "Late surge window", value: "Final 16", note: "Knockout points accelerate" },
+];
 
 export default async function RankingPage() {
   const current = await getCurrentUser();
@@ -93,6 +105,9 @@ export default async function RankingPage() {
           </CardTitle>
         </CardHeader>
         <CardContent className="p-0">
+          {rows.length === 0 ? (
+            <SampleLeaderboard />
+          ) : (
           <ul className="divide-y divide-border/40">
             {rows.map((u, idx) => {
               const pos = idx + 1;
@@ -154,9 +169,80 @@ export default async function RankingPage() {
               );
             })}
           </ul>
+          )}
         </CardContent>
       </Card>
+
+      <section className="mt-6 grid gap-3 sm:grid-cols-3">
+        {LEADERBOARD_MARKETS.map((item) => (
+          <div
+            key={item.label}
+            className="rounded-xl border border-border/60 bg-card/60 p-4 backdrop-blur"
+          >
+            <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+              <ShieldCheck className="size-3.5 text-primary" />
+              {item.label}
+            </div>
+            <div className="mt-2 font-display text-xl font-bold">
+              {item.value}
+            </div>
+            <p className="mt-1 text-xs leading-5 text-muted-foreground">
+              {item.note}
+            </p>
+          </div>
+        ))}
+      </section>
     </main>
+  );
+}
+
+function SampleLeaderboard() {
+  return (
+    <div className="space-y-4 p-4">
+      <div className="rounded-xl border border-primary/25 bg-primary/10 p-4">
+        <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">
+          <Users className="size-3.5" />
+          sample leaderboard
+        </div>
+        <p className="mt-2 text-sm leading-6 text-muted-foreground">
+          Once players submit predictions, this table becomes live. Until then,
+          use this sample board to preview how a Polymatch pool will feel.
+        </p>
+      </div>
+
+      <ul className="divide-y divide-border/40 overflow-hidden rounded-xl border border-border/60 bg-background/35">
+        {SAMPLE_LEADERS.map((u, idx) => (
+          <li key={u.handle} className="flex items-center gap-3 px-4 py-3">
+            <Position pos={idx + 1} />
+            <Avatar className="h-10 w-10 border border-border/60">
+              <AvatarFallback className="bg-primary/15 text-xs font-semibold text-primary">
+                {u.name.slice(0, 2).toUpperCase()}
+              </AvatarFallback>
+            </Avatar>
+            <div className="min-w-0 flex-1">
+              <div className="truncate font-medium">{u.name}</div>
+              <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
+                <span>{u.handle}</span>
+                <span>{u.predictions} predictions</span>
+                <span className="inline-flex items-center gap-1">
+                  <Trophy className="size-3 text-[color:var(--gold)]" />
+                  <Flag code={u.pick} size="xs" />
+                  {u.pick}
+                </span>
+              </div>
+            </div>
+            <div className="text-right">
+              <div className="font-display text-2xl font-bold tabular-nums">
+                {u.points}
+              </div>
+              <div className="font-mono text-[10px] font-semibold text-primary">
+                {u.trend}
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
 
