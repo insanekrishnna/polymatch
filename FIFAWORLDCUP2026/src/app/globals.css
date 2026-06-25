@@ -73,7 +73,6 @@
   html {
     @apply font-sans;
     background: #ffffff;
-    scroll-behavior: smooth;
   }
 
   body {

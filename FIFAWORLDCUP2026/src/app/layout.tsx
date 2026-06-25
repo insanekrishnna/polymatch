@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/navbar";
 import { ScrollReveal } from "@/components/scroll-reveal";
+import { SmoothScroll } from "@/components/smooth-scroll";
 import { Toaster } from "@/components/ui/sonner";
 import { getSiteUrl } from "@/lib/utils";
 import { Analytics } from "@vercel/analytics/next";
@@ -96,12 +97,14 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
-        <Navbar />
-        <ScrollReveal />
-        <main className="flex-1 mx-auto w-full max-w-[1400px] px-6 sm:px-8 lg:px-12 py-12">
-          {children}
-        </main>
-        <Toaster />
+        <SmoothScroll>
+          <Navbar />
+          <ScrollReveal />
+          <main className="flex-1 mx-auto w-full max-w-[1400px] px-6 sm:px-8 lg:px-12 py-12">
+            {children}
+          </main>
+          <Toaster />
+        </SmoothScroll>
         <Analytics />
       </body>
     </html>
