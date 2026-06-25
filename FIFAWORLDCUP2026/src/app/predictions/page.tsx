@@ -4,8 +4,10 @@ import {
   CalendarDays,
   Check,
   ShieldCheck,
+  Sparkles,
   Star,
   Trophy,
+  Users,
 } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 import { requireUser } from "@/lib/session";
@@ -13,6 +15,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { Flag } from "@/components/flag";
+import { SoccerBall } from "@/components/brand";
 
 const SAMPLE_GROUPS = [
   { letter: "A", teams: ["MEX", "RSA", "JPN", "NOR"], angle: "Opening-night volatility" },
@@ -141,6 +144,92 @@ export default async function PredictionsIndexPage() {
           );
           })}
         </div>
+      )}
+
+      {groups.length > 0 && (
+        <section className="mt-12 animate-on-scroll">
+          <div className="flex items-center gap-2 mb-4 px-2">
+            <Sparkles className="size-5 text-primary" />
+            <h2 className="font-display text-xl font-bold text-gray-900">
+              Community Insights
+            </h2>
+          </div>
+          <div className="rounded-3xl border border-white/50 bg-white/30 p-6 sm:p-10 backdrop-blur-3xl shadow-xl">
+            <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+              {/* Column 1: Tournament Favorites */}
+              <div className="space-y-6">
+                <h3 className="text-xs font-bold text-gray-800 uppercase tracking-[0.15em]">Tournament Favorites</h3>
+                <div className="space-y-5">
+                  <div>
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-sm font-bold text-gray-900">Argentina</span>
+                      <span className="text-sm font-bold text-primary">34%</span>
+                    </div>
+                    <div className="h-1.5 w-full overflow-hidden rounded-full bg-black/5">
+                      <div className="h-full rounded-full bg-primary transition-all duration-1000" style={{ width: "34%" }} />
+                    </div>
+                  </div>
+                  <div>
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-sm font-bold text-gray-900">France</span>
+                      <span className="text-sm font-bold text-primary">28%</span>
+                    </div>
+                    <div className="h-1.5 w-full overflow-hidden rounded-full bg-black/5">
+                      <div className="h-full rounded-full bg-primary transition-all duration-1000 delay-150" style={{ width: "28%" }} />
+                    </div>
+                  </div>
+                  <div>
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-sm font-bold text-gray-900">Brazil</span>
+                      <span className="text-sm font-bold text-primary">19%</span>
+                    </div>
+                    <div className="h-1.5 w-full overflow-hidden rounded-full bg-black/5">
+                      <div className="h-full rounded-full bg-primary transition-all duration-1000 delay-300" style={{ width: "19%" }} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Column 2: Most Selected Upsets */}
+              <div className="space-y-6">
+                <h3 className="text-xs font-bold text-gray-800 uppercase tracking-[0.15em]">Trending Upsets</h3>
+                <div className="space-y-3">
+                   <div className="flex items-center gap-4 rounded-xl bg-white/40 p-3.5 border border-white/40 shadow-sm transition-colors hover:bg-white/60">
+                     <div className="flex flex-col">
+                       <span className="text-[10px] font-bold text-gray-500 tracking-wider">GROUP C</span>
+                       <span className="text-sm font-semibold text-gray-900 mt-0.5">Senegal &gt; Netherlands</span>
+                     </div>
+                     <Badge variant="secondary" className="ml-auto font-mono text-[10px] bg-white/50 text-gray-700">12% picked</Badge>
+                   </div>
+                   <div className="flex items-center gap-4 rounded-xl bg-white/40 p-3.5 border border-white/40 shadow-sm transition-colors hover:bg-white/60">
+                     <div className="flex flex-col">
+                       <span className="text-[10px] font-bold text-gray-500 tracking-wider">GROUP A</span>
+                       <span className="text-sm font-semibold text-gray-900 mt-0.5">Mexico &gt; USA</span>
+                     </div>
+                     <Badge variant="secondary" className="ml-auto font-mono text-[10px] bg-white/50 text-gray-700">8% picked</Badge>
+                   </div>
+                </div>
+              </div>
+
+              {/* Column 3: Play with Friends */}
+              <div className="space-y-6">
+                <h3 className="text-xs font-bold text-gray-800 uppercase tracking-[0.15em]">Compete Together</h3>
+                <div className="rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 p-6 border border-primary/30 flex flex-col items-center justify-center h-[calc(100%-2rem)] text-center shadow-inner relative overflow-hidden group transition-all hover:shadow-primary/20">
+                   <SoccerBall className="size-8 text-primary mb-3 transition-transform duration-300 group-hover:scale-110" />
+                   <div className="text-lg font-extrabold text-gray-900 leading-tight">
+                     Prove Your Football Knowledge
+                   </div>
+                   <p className="text-xs text-gray-700 mt-2 font-medium mb-5">
+                     Create a private league and compete with friends for ultimate bragging rights.
+                   </p>
+                   <Link href="/leagues" className="inline-flex items-center justify-center whitespace-nowrap rounded-lg bg-primary px-5 py-2.5 text-sm font-bold text-primary-foreground shadow-md transition-all hover:bg-primary/90 hover:-translate-y-0.5">
+                     Create a League
+                   </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       )}
     </main>
   );
