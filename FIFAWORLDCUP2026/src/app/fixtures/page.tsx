@@ -276,7 +276,7 @@ function ScheduleFallback({ hasFilters }: { hasFilters: boolean }) {
         </div>
       )}
 
-      <section className="terminal-card overflow-hidden rounded-2xl">
+      <section className="terminal-card overflow-hidden rounded-xl">
         <div className="border-b border-border/40 bg-background/35 px-4 py-3">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
@@ -304,7 +304,7 @@ function ScheduleFallback({ hasFilters }: { hasFilters: boolean }) {
                 <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
                   {fixture.phase}
                 </div>
-                <div className="rounded-full bg-transparent px-2 py-0.5 font-mono text-[10px] font-semibold text-primary">
+                <div className="rounded-lg bg-transparent px-2 py-0.5 font-mono text-[10px] font-semibold text-primary">
                   {fixture.price}
                 </div>
               </div>
@@ -359,7 +359,7 @@ function ScheduleFallback({ hasFilters }: { hasFilters: boolean }) {
         ))}
       </section>
 
-      <section className="rounded-2xl border border-white/50 bg-white/30 p-4 backdrop-blur-2xl shadow-sm">
+      <section className="rounded-xl border border-white/50 bg-white/30 p-4 backdrop-blur-2xl shadow-sm">
         <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
           <Flame className="size-3.5 text-[color:var(--gold)]" />
           schedule angles
@@ -376,7 +376,7 @@ function ScheduleFallback({ hasFilters }: { hasFilters: boolean }) {
 
 function TeamToken({ code }: { code: string }) {
   return (
-    <div className="flex items-center gap-2 rounded-full border border-border/50 bg-background/55 px-2.5 py-1">
+    <div className="flex items-center gap-2 rounded-lg border border-border/50 bg-background/55 px-2.5 py-1">
       {code === "TBD" ? (
         <div className="h-4 w-6 rounded-sm border border-dashed border-border/70" />
       ) : (
@@ -426,7 +426,7 @@ function FilterChip({
     <Link
       href={href}
       className={cn(
-        "inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-medium transition-colors",
+        "inline-flex items-center gap-1 rounded-lg border px-2.5 py-1 text-xs font-medium transition-colors",
         active
           ? "border-primary/60 bg-transparent text-primary"
           : "border-border/60 bg-background/50 text-muted-foreground hover:border-primary/40 hover:text-foreground",

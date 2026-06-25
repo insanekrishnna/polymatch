@@ -62,7 +62,7 @@ export default async function PredictionsIndexPage() {
             Predict all 72 group stage matches — they lock when each match starts.
           </p>
           <div className="mt-3 flex items-center gap-3 text-xs text-muted-foreground">
-            <div className="inline-flex items-center gap-1.5 rounded-full border border-border/60 bg-card/70 px-2.5 py-1">
+            <div className="inline-flex items-center gap-1.5 rounded-lg border border-border/60 bg-card/70 px-2.5 py-1">
               <Check className="size-3 text-gray-500" strokeWidth={1} />
               <span className="tabular-nums">
                 {done}/{total} scores
@@ -154,7 +154,7 @@ export default async function PredictionsIndexPage() {
               Community Insights
             </h2>
           </div>
-          <div className="rounded-3xl border border-white/50 bg-white/30 p-6 sm:p-10 backdrop-blur-3xl shadow-xl">
+          <div className="rounded-xl border border-white/50 bg-white/30 p-6 sm:p-10 backdrop-blur-3xl shadow-xl">
             <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
               {/* Column 1: Tournament Favorites */}
               <div className="space-y-6">
@@ -165,8 +165,8 @@ export default async function PredictionsIndexPage() {
                       <span className="text-sm font-bold text-gray-900">Argentina</span>
                       <span className="text-sm font-bold text-primary">34%</span>
                     </div>
-                    <div className="h-1.5 w-full overflow-hidden rounded-full bg-black/5">
-                      <div className="h-full rounded-full bg-primary transition-all duration-1000" style={{ width: "34%" }} />
+                    <div className="h-1.5 w-full overflow-hidden rounded-lg bg-black/5">
+                      <div className="h-full rounded-lg bg-primary transition-all duration-1000" style={{ width: "34%" }} />
                     </div>
                   </div>
                   <div>
@@ -174,8 +174,8 @@ export default async function PredictionsIndexPage() {
                       <span className="text-sm font-bold text-gray-900">France</span>
                       <span className="text-sm font-bold text-primary">28%</span>
                     </div>
-                    <div className="h-1.5 w-full overflow-hidden rounded-full bg-black/5">
-                      <div className="h-full rounded-full bg-primary transition-all duration-1000 delay-150" style={{ width: "28%" }} />
+                    <div className="h-1.5 w-full overflow-hidden rounded-lg bg-black/5">
+                      <div className="h-full rounded-lg bg-primary transition-all duration-1000 delay-150" style={{ width: "28%" }} />
                     </div>
                   </div>
                   <div>
@@ -183,8 +183,8 @@ export default async function PredictionsIndexPage() {
                       <span className="text-sm font-bold text-gray-900">Brazil</span>
                       <span className="text-sm font-bold text-primary">19%</span>
                     </div>
-                    <div className="h-1.5 w-full overflow-hidden rounded-full bg-black/5">
-                      <div className="h-full rounded-full bg-primary transition-all duration-1000 delay-300" style={{ width: "19%" }} />
+                    <div className="h-1.5 w-full overflow-hidden rounded-lg bg-black/5">
+                      <div className="h-full rounded-lg bg-primary transition-all duration-1000 delay-300" style={{ width: "19%" }} />
                     </div>
                   </div>
                 </div>
@@ -194,19 +194,23 @@ export default async function PredictionsIndexPage() {
               <div className="space-y-6">
                 <h3 className="text-xs font-bold text-gray-800 uppercase tracking-[0.15em]">Trending Upsets</h3>
                 <div className="space-y-3">
-                   <div className="flex items-center gap-4 rounded-xl bg-white/40 p-3.5 border border-white/40 shadow-sm transition-colors hover:bg-white/60">
+                   <div className="flex items-center gap-4 rounded-xl border border-white/50 bg-white/30 p-4 backdrop-blur-2xl shadow-sm w-full transition-colors hover:bg-white/40">
                      <div className="flex flex-col">
-                       <span className="text-[10px] font-bold text-gray-500 tracking-wider">GROUP C</span>
-                       <span className="text-sm font-semibold text-gray-900 mt-0.5">Senegal &gt; Netherlands</span>
+                       <span className="text-[9px] font-bold text-slate-600/80 tracking-wider">GROUP C</span>
+                       <span className="text-xs font-semibold text-slate-900 mt-0.5">Senegal &gt; Netherlands</span>
                      </div>
-                     <Badge variant="secondary" className="ml-auto font-mono text-[10px] bg-white/50 text-gray-700">12% picked</Badge>
+                     <div className="ml-auto rounded-md bg-white/50 border border-white/40 px-2 py-0.5 font-mono text-[10px] font-medium text-slate-800">
+                       12% picked
+                     </div>
                    </div>
-                   <div className="flex items-center gap-4 rounded-xl bg-white/40 p-3.5 border border-white/40 shadow-sm transition-colors hover:bg-white/60">
+                   <div className="flex items-center gap-4 rounded-xl border border-white/50 bg-white/30 p-4 backdrop-blur-2xl shadow-sm w-full transition-colors hover:bg-white/40">
                      <div className="flex flex-col">
-                       <span className="text-[10px] font-bold text-gray-500 tracking-wider">GROUP A</span>
-                       <span className="text-sm font-semibold text-gray-900 mt-0.5">Mexico &gt; USA</span>
+                       <span className="text-[9px] font-bold text-slate-600/80 tracking-wider">GROUP A</span>
+                       <span className="text-xs font-semibold text-slate-900 mt-0.5">Mexico &gt; USA</span>
                      </div>
-                     <Badge variant="secondary" className="ml-auto font-mono text-[10px] bg-white/50 text-gray-700">8% picked</Badge>
+                     <div className="ml-auto rounded-md bg-white/50 border border-white/40 px-2 py-0.5 font-mono text-[10px] font-medium text-slate-800">
+                       8% picked
+                     </div>
                    </div>
                 </div>
               </div>
@@ -214,15 +218,15 @@ export default async function PredictionsIndexPage() {
               {/* Column 3: Play with Friends */}
               <div className="space-y-6">
                 <h3 className="text-xs font-bold text-gray-800 uppercase tracking-[0.15em]">Compete Together</h3>
-                <div className="rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 p-6 border border-primary/30 flex flex-col items-center justify-center h-[calc(100%-2rem)] text-center shadow-inner relative overflow-hidden group transition-all hover:shadow-primary/20">
-                   <SoccerBall className="size-8 text-primary mb-3 transition-transform duration-300 group-hover:scale-110" />
-                   <div className="text-lg font-extrabold text-gray-900 leading-tight">
+                <div className="rounded-xl border border-white/50 bg-white/30 p-5 backdrop-blur-2xl shadow-sm flex flex-col items-center justify-center h-[calc(100%-2rem)] text-center relative overflow-hidden w-full transition-colors hover:bg-white/40">
+                   <SoccerBall className="size-6 text-primary mb-2" />
+                   <div className="text-sm font-bold text-gray-900 leading-tight">
                      Prove Your Football Knowledge
                    </div>
-                   <p className="text-xs text-gray-700 mt-2 font-medium mb-5">
-                     Create a private league and compete with friends for ultimate bragging rights.
+                   <p className="text-[10px] text-gray-700 mt-1.5 font-medium mb-4 px-2">
+                     Create a private league and compete.
                    </p>
-                   <Link href="/leagues" className="inline-flex items-center justify-center whitespace-nowrap rounded-lg bg-primary px-5 py-2.5 text-sm font-bold text-primary-foreground shadow-md transition-all hover:bg-primary/90 hover:-translate-y-0.5">
+                   <Link href="/leagues" className="inline-flex items-center justify-center whitespace-nowrap rounded-md bg-primary px-4 py-1.5 text-xs font-semibold text-primary-foreground shadow-sm transition-all hover:bg-primary/90">
                      Create a League
                    </Link>
                 </div>
@@ -238,7 +242,7 @@ export default async function PredictionsIndexPage() {
 function PredictionsFallback() {
   return (
     <div className="space-y-5">
-      <div className="terminal-card rounded-2xl p-5">
+      <div className="terminal-card rounded-xl p-5">
         <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
           <ShieldCheck className="size-3.5 text-gray-500" strokeWidth={1} />
           prediction board preview
@@ -268,7 +272,7 @@ function PredictionsFallback() {
                   {group.letter}
                 </span>
               </div>
-              <div className="rounded-full bg-transparent px-2.5 py-1 font-mono text-[11px] font-semibold text-primary">
+              <div className="rounded-lg bg-transparent px-2.5 py-1 font-mono text-[11px] font-semibold text-primary">
                 sample
               </div>
             </div>

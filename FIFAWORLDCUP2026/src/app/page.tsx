@@ -407,7 +407,7 @@ export default async function HomePage() {
             {/* Left Side Typography */}
             <div className="w-full max-w-xl mx-auto lg:mx-0 text-left">
               <div className="animate-on-scroll mb-4 flex items-center justify-start gap-3 text-sm font-medium text-gray-700 tracking-wide uppercase">
-                <span className="inline-flex items-center gap-2 rounded-full bg-black/2 border border-black/10 px-4 py-2 text-xs font-medium text-gray-800 transition-colors hover:bg-black/10 hover:border-black/20">
+                <span className="inline-flex items-center gap-2 rounded-lg bg-black/2 border border-black/10 px-4 py-2 text-xs font-medium text-gray-800 transition-colors hover:bg-black/10 hover:border-black/20">
                   <span className="size-1.5 rounded-full bg-primary" />
                   <span>World Cup 2026</span>
                 </span>
@@ -589,7 +589,7 @@ export default async function HomePage() {
                     <CalendarDays className="size-3.5" />
                     {day.date}
                   </div>
-                  <div className="rounded-full bg-transparent px-2 py-0.5 font-mono text-[10px] font-semibold text-primary">
+                  <div className="rounded-lg bg-transparent px-2 py-0.5 font-mono text-[10px] font-semibold text-primary">
                     3 Matches
                   </div>
                 </div>
@@ -729,7 +729,7 @@ export default async function HomePage() {
       </section>
 
       <div className="pt-2 pb-6 sm:pt-2 sm:pb-2 px-2">
-        <footer className="mx-auto max-w-6xl rounded-3xl border border-white/50 bg-white/30 backdrop-blur-3xl shadow-xl relative overflow-hidden">
+        <footer className="mx-auto max-w-6xl rounded-xl border border-white/50 bg-white/30 backdrop-blur-3xl shadow-xl relative overflow-hidden">
           {/* Subtle gradient ambient glows inside the footer */}
           <div className="absolute -top-32 -right-32 size-96 bg-primary/20 blur-[100px] rounded-full pointer-events-none" />
           <div className="absolute -bottom-32 -left-32 size-96 bg-green-200/40 blur-[100px] rounded-full pointer-events-none" />
