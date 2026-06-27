@@ -17,25 +17,24 @@
 
 ---
 
-## 📖 About the Project
+##  About the Project
 
 **Polymatch** is a multiplayer web application (pool/prediction game) to predict the FIFA World Cup 2026 (USA · Canada · Mexico). Participants predict scores for all 104 matches, build their knockout bracket, and compete for the top ranking.
 
 Designed for playing **with friends**, with a transparent scoring system and a football-inspired design centered on the tournament experience.
 
-## ✨ Features
+##  Features
 
-- ⚽ **Match predictions** for all 104 matches (12 groups of 4 + knockout stages).
-- 🏆 **Knockout bracket** generated from your predictions (Round of 32 → Final).
-- 🎖️ **Individual awards**: Top Scorer, Top Assist, Best Player, Best Goalkeeper, Champion and Runner-up.
-- 📊 **Live leaderboard** with transparent scoring system visible to users.
-- 🗓️ **Official calendar** with venues, times and timezones.
-- 🔐 **Authentication** with username and password (NextAuth).
-- ⚙️ **Admin panel** for tournament results and awards.
-- 🌎 **SEO optimized** (OpenGraph, sitemap, robots, JSON-LD SportsEvent).
-- 🎨 **Dark-first design** inspired by the 2026 World Cup visual identity.
+- **Match predictions** for all 104 matches (12 groups of 4 + knockout stages).
+- **Knockout bracket** generated from your predictions (Round of 32 → Final).
+- **Live leaderboard** with transparent scoring system visible to users.
+- **Official calendar** with venues, times and timezones.
+- **Authentication** with username and password (NextAuth).
+- **Admin panel** for tournament results and awards.
+- **SEO optimized** (OpenGraph, sitemap, robots, JSON-LD SportsEvent).
+- **Dark-first design** inspired by the 2026 World Cup visual identity.
 
-## 🧱 Tech Stack
+## Tech Stack
 
 | Layer | Technology |
 |---|---|
@@ -48,7 +47,7 @@ Designed for playing **with friends**, with a transparent scoring system and a f
 | Validation | [Zod 4](https://zod.dev) |
 | Icons | [lucide-react](https://lucide.dev) · [flag-icons](https://flagicons.lipis.dev) |
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -90,7 +89,7 @@ Open [http://localhost:3000](http://localhost:3000) to see the application.
 
 See [.env.example](.env.example) as a template.
 
-## 📜 Available Scripts
+## Available Scripts
 
 | Script | Description |
 |---|---|
@@ -103,7 +102,7 @@ See [.env.example](.env.example) as a template.
 | `npm run db:studio` | Open Prisma Studio to inspect the database. |
 | `npm run db:seed` | Load official FIFA data (teams, groups, matches). |
 
-## 🗂️ Project Structure
+## Project Structure
 
 ```
 src/
@@ -130,7 +129,7 @@ prisma/
 └── fifa-data.ts           # Official FIFA 2026 data
 ```
 
-## 🚢 Deployment
+## Deployment
 
 The application is optimized for [Vercel](https://vercel.com/new), but runs on any Node.js-compatible platform.
 
@@ -139,11 +138,11 @@ The application is optimized for [Vercel](https://vercel.com/new), but runs on a
 3. Run `prisma migrate deploy` as a pre-build step.
 4. `npm run build && npm start`.
 
-## 🤝 Contributing
+## Contributing
 
 This is a personal project, but suggestions and bug reports are welcome via [Issues](../../issues) or Pull Requests.
 
-## 📄 License
+## License
 
 Distributed under the **MIT** license. See `LICENSE` for more information.
 
