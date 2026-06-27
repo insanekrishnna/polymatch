@@ -1,4 +1,5 @@
 # Polymatch
+
 • PolyMatch was born from a realization that the sports industry has solved content, scores, and betting, but hasn't solved participation.
 
 • Every match generates millions of conversations, predictions, opinions, and communities, yet that value disappears the moment the game ends.
