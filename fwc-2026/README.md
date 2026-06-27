@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="public/icon.png" alt="Polymatch" width="128" />
+
 
 # Polymatch
 
