@@ -5,6 +5,7 @@ import { Navbar } from "@/components/navbar";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { Toaster } from "@/components/ui/sonner";
 import { getSiteUrl } from "@/lib/utils";
+import { Analytics } from "@vercel/analytics/next";
 
 const geistSans = Geist({
   variable: "--font-sans",
@@ -99,6 +100,7 @@ export default function RootLayout({
         <ScrollReveal />
         {children}
         <Toaster />
+        <Analytics />
       </body>
     </html>
   );
