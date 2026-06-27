@@ -23,7 +23,7 @@
 
 Designed for playing **with friends**, with a transparent scoring system and a football-inspired design centered on the tournament experience.
 
-## ✨ Features
+## Features
 
 -  **Match predictions** for all 104 matches (12 groups of 4 + knockout stages).
 -  **Knockout bracket** generated from your predictions (Round of 32 → Final).
@@ -35,7 +35,7 @@ Designed for playing **with friends**, with a transparent scoring system and a f
 -  **SEO optimized** (OpenGraph, sitemap, robots, JSON-LD SportsEvent).
 -  **Dark-first design** inspired by the 2026 World Cup visual identity.
 
-##  Tech Stack
+## Tech Stack
 
 | Layer | Technology |
 |---|---|
@@ -48,7 +48,7 @@ Designed for playing **with friends**, with a transparent scoring system and a f
 | Validation | [Zod 4](https://zod.dev) |
 | Icons | [lucide-react](https://lucide.dev) · [flag-icons](https://flagicons.lipis.dev) |
 
-##  Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -103,7 +103,7 @@ See [.env.example](.env.example) as a template.
 | `npm run db:studio` | Open Prisma Studio to inspect the database. |
 | `npm run db:seed` | Load official FIFA data (teams, groups, matches). |
 
-##  Project Structure
+## Project Structure
 
 ```
 src/
@@ -130,7 +130,7 @@ prisma/
 └── fifa-data.ts           # Official FIFA 2026 data
 ```
 
-##  Deployment
+## Deployment
 
 The application is optimized for [Vercel](https://vercel.com/new), but runs on any Node.js-compatible platform.
 
@@ -143,7 +143,7 @@ The application is optimized for [Vercel](https://vercel.com/new), but runs on a
 
 This is a personal project, but suggestions and bug reports are welcome via [Issues](../../issues) or Pull Requests.
 
-##  License
+## License
 
 Distributed under the **MIT** license. See `LICENSE` for more information.
 
