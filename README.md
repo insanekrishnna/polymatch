@@ -1,8 +1,6 @@
 # Polymatch
 • PolyMatch was born from a realization that the sports industry has solved content, scores, and betting, but hasn't solved participation.
 
-CA : 8EvNDHP4zETTgK52jDq3JXMjUfQZpnqSD4h4pDhZpump
-
 • Every match generates millions of conversations, predictions, opinions, and communities, yet that value disappears the moment the game ends.
 
 • We saw an opportunity to build the missing layer: a platform where fan intelligence becomes measurable, reputation becomes valuable, and communities become assets.
