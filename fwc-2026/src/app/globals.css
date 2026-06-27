@@ -55,156 +55,171 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-/* ---------------------------------------------------------------------------
-   Polymatch palette — dark-first. Inspired by FIFA's tournament branding:
-   deep navy base + vibrant pitch green as primary + warm red accent, gold
-   reserved for champion/trophy highlights.
-   --------------------------------------------------------------------------- */
-
 :root {
-  --background: #ffffff;
-  --foreground: #0a0a0a;
-  --card: rgba(255, 255, 255, 0.68);
-  --card-foreground: #0a0a0a;
-  --popover: rgba(255, 255, 255, 0.88);
-  --popover-foreground: #0a0a0a;
-  --primary: #13c978;
-  --primary-foreground: #ffffff;
-  --secondary: rgba(10, 10, 10, 0.055);
-  --secondary-foreground: rgba(10, 10, 10, 0.82);
-  --muted: rgba(10, 10, 10, 0.055);
-  --muted-foreground: rgba(10, 10, 10, 0.58);
-  --accent: #13c978;
-  --accent-foreground: #ffffff;
-  --destructive: #d92d20;
-  --border: rgba(10, 10, 10, 0.1);
-  --input: rgba(10, 10, 10, 0.12);
-  --ring: #13c978;
-  --chart-1: #13c978;
-  --chart-2: #0a0a0a;
-  --chart-3: #ff6b00;
-  --chart-4: rgba(10, 10, 10, 0.6);
-  --chart-5: rgba(10, 10, 10, 0.35);
-  --radius: 1rem;
-  --sidebar: rgba(255, 255, 255, 0.68);
-  --sidebar-foreground: #0a0a0a;
-  --sidebar-primary: #13c978;
-  --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: rgba(10, 10, 10, 0.055);
-  --sidebar-accent-foreground: rgba(10, 10, 10, 0.82);
-  --sidebar-border: rgba(10, 10, 10, 0.1);
-  --sidebar-ring: #13c978;
-  --pitch: #13c978;
-  --pitch-foreground: #ffffff;
-  --gold: #ff6b00;
-  --silver: rgba(255, 255, 255, 0.6);
+  color-scheme: dark;
+
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #111111;
+  --bg-tertiary: #1a1a1a;
+  --bg-border: #1f1f1f;
+  --accent: #67e8ae;
+  --accent-soft: rgba(103, 232, 174, 0.12);
+  --accent-border: rgba(103, 232, 174, 0.25);
+  --text-primary: #ffffff;
+  --text-secondary: #a1a1aa;
+  --text-muted: #52525b;
+  --text-accent: #67e8ae;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(255, 255, 255, 0.15);
+  --success: #4ade80;
+  --warning: #facc15;
+  --error: #f87171;
+
+  --background: var(--bg-primary);
+  --foreground: var(--text-primary);
+  --card: var(--bg-secondary);
+  --card-foreground: var(--text-primary);
+  --popover: var(--bg-secondary);
+  --popover-foreground: var(--text-primary);
+  --primary: var(--accent);
+  --primary-foreground: var(--bg-primary);
+  --secondary: var(--bg-tertiary);
+  --secondary-foreground: var(--text-primary);
+  --muted: rgba(255, 255, 255, 0.055);
+  --muted-foreground: var(--text-secondary);
+  --accent-foreground: var(--bg-primary);
+  --destructive: var(--error);
+  --border: var(--border-subtle);
+  --input: rgba(255, 255, 255, 0.1);
+  --ring: var(--accent);
+  --chart-1: var(--accent);
+  --chart-2: #ffffff;
+  --chart-3: var(--warning);
+  --chart-4: var(--text-secondary);
+  --chart-5: var(--text-muted);
+  --radius: 0.5rem;
+  --sidebar: var(--bg-secondary);
+  --sidebar-foreground: var(--text-primary);
+  --sidebar-primary: var(--accent);
+  --sidebar-primary-foreground: var(--bg-primary);
+  --sidebar-accent: var(--bg-tertiary);
+  --sidebar-accent-foreground: var(--text-primary);
+  --sidebar-border: var(--border-subtle);
+  --sidebar-ring: var(--accent);
+  --pitch: var(--accent);
+  --pitch-foreground: var(--bg-primary);
+  --gold: var(--warning);
+  --silver: var(--text-secondary);
   --bronze: #bf7a45;
 }
 
-/* Light mode kept in case we add a toggle later. */
 .light {
-  --background: oklch(0.99 0.005 260);
-  --foreground: oklch(0.14 0.025 260);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.14 0.025 260);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.14 0.025 260);
-  --primary: oklch(0.52 0.17 162);
-  --primary-foreground: oklch(0.98 0.005 260);
-  --secondary: oklch(0.95 0.01 260);
-  --secondary-foreground: oklch(0.14 0.025 260);
-  --muted: oklch(0.95 0.01 260);
-  --muted-foreground: oklch(0.45 0.015 260);
-  --accent: oklch(0.55 0.22 25);
-  --accent-foreground: oklch(0.98 0.005 25);
-  --destructive: oklch(0.55 0.22 25);
-  --border: oklch(0.14 0.025 260 / 10%);
-  --input: oklch(0.14 0.025 260 / 12%);
-  --ring: oklch(0.52 0.17 162);
+  color-scheme: dark;
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
-  body {
-    @apply bg-background text-foreground;
-    color: #0a0a0a;
-    background-image:
-      radial-gradient(900px 420px at 50% 0%, rgba(19, 201, 120, 0.12), transparent 62%),
-      radial-gradient(700px 360px at 14% 18%, rgba(19, 201, 120, 0.08), transparent 58%),
-      linear-gradient(180deg, #ffffff 0%, #f7faf8 100%);
-    background-size: auto;
-    background-attachment: fixed;
-  }
+
   html {
     @apply font-sans;
+    background: var(--bg-primary);
   }
-  h1, h2, h3, h4, h5, h6 {
+
+  body {
+    @apply bg-background text-foreground;
+    min-width: 320px;
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+    background-image:
+      radial-gradient(ellipse at 50% 0%, rgba(103, 232, 174, 0.06) 0%, transparent 62%),
+      linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+    background-size: auto, 48px 48px, 48px 48px;
+    background-attachment: fixed;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: var(--font-display), var(--font-sans), ui-sans-serif, system-ui, sans-serif;
-    letter-spacing: -0.03em;
-    background: none;
-    color: #0a0a0a;
+    letter-spacing: 0;
+    color: var(--text-primary);
     -webkit-text-fill-color: currentColor;
   }
 
-  /* Strip native number-input spinner arrows everywhere. */
   input[type="number"]::-webkit-outer-spin-button,
   input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
   }
+
   input[type="number"] {
     -moz-appearance: textfield;
     appearance: textfield;
   }
 
-  /* Themed scrollbars — thin, rounded, primary-tinted. */
   * {
     scrollbar-width: thin;
-    scrollbar-color: rgba(19, 201, 120, 0.4) transparent;
+    scrollbar-color: rgba(103, 232, 174, 0.42) transparent;
   }
+
   *::-webkit-scrollbar {
     width: 10px;
     height: 10px;
   }
+
   *::-webkit-scrollbar-track {
     background: transparent;
   }
+
   *::-webkit-scrollbar-thumb {
-    background-color: rgba(19, 201, 120, 0.35);
+    background-color: rgba(103, 232, 174, 0.35);
     border-radius: 9999px;
     border: 2px solid transparent;
     background-clip: content-box;
     transition: background-color 0.15s ease;
   }
+
   *::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(19, 201, 120, 0.6);
+    background-color: rgba(103, 232, 174, 0.6);
     background-clip: content-box;
   }
+
   *::-webkit-scrollbar-corner {
     background: transparent;
   }
 }
 
-/* Pitch stripes utility — subtle horizontal lines for backgrounds. */
 @utility bg-pitch-stripes {
   background-image: repeating-linear-gradient(
     0deg,
-    rgba(19, 201, 120, 0.08) 0 2px,
+    rgba(103, 232, 174, 0.08) 0 2px,
     transparent 2px 24px
   );
 }
 
-/* Bunting: hanging pennants with a subtle wind-like sway. */
 @keyframes bunting-sway {
-  0%, 100% { transform: rotate(-5deg); }
-  50%      { transform: rotate(5deg); }
+  0%,
+  100% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
 }
 
 @keyframes bunting-scroll {
-  from { transform: translate3d(0, 0, 0); }
-  to   { transform: translate3d(-50%, 0, 0); }
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
 }
 
 @utility bunting-track {
@@ -229,32 +244,113 @@
   will-change: transform;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .bunting-pennant { animation: none; }
-  .bunting-gust { transform: none; }
-  .bunting-track { animation: none; }
-}
-
-/* Faint dotted pattern */
 @utility bg-dots {
   background-image: radial-gradient(
-    rgba(10, 10, 10, 0.06) 1px,
+    rgba(255, 255, 255, 0.045) 1px,
     transparent 1px
   );
   background-size: 18px 18px;
 }
 
 @utility text-heading-gradient {
-  background: none;
-  color: #0a0a0a;
-  -webkit-text-fill-color: currentColor;
+  background: linear-gradient(135deg, #ffffff 0%, #67e8ae 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
 }
 
 @utility terminal-card {
-  border: 1px solid rgba(255, 255, 255, 0.72);
-  background: rgba(255, 255, 255, 0.62);
-  box-shadow:
-    0 18px 60px rgba(15, 23, 42, 0.09),
-    inset 0 1px 0 rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(22px) saturate(180%);
+  border: 1px solid var(--border-subtle);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.018));
+  box-shadow: none;
+  backdrop-filter: blur(20px) saturate(140%);
+}
+
+.gradient-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(103, 232, 174, 0.3), transparent);
+}
+
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.section-eyebrow::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--accent);
+}
+
+.animate-on-scroll {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-ready .animate-on-scroll {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.reveal-ready .animate-on-scroll.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animate-stagger > *:nth-child(1) {
+  transition-delay: 0ms;
+}
+
+.animate-stagger > *:nth-child(2) {
+  transition-delay: 80ms;
+}
+
+.animate-stagger > *:nth-child(3) {
+  transition-delay: 160ms;
+}
+
+.animate-stagger > *:nth-child(4) {
+  transition-delay: 240ms;
+}
+
+[class*="tracking-"] {
+  letter-spacing: 0 !important;
+}
+
+.text-\[9px\],
+.text-\[10px\],
+.text-\[11px\],
+.text-xs {
+  font-size: 13px !important;
+  line-height: 1.45 !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bunting-pennant,
+  .bunting-track {
+    animation: none;
+  }
+
+  .bunting-gust {
+    transform: none;
+  }
+
+  .animate-on-scroll {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }

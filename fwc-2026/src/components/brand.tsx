@@ -23,7 +23,7 @@ export function Brand({
     >
       <span
         className={cn(
-          "grid place-items-center rounded-[7px] bg-primary text-white shadow-[0_14px_28px_rgba(19,201,120,0.24)]",
+          "grid place-items-center rounded-md border border-primary/25 bg-primary text-primary-foreground",
           sizes.mark,
         )}
       >

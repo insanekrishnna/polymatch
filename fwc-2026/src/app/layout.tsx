@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/navbar";
+import { ScrollReveal } from "@/components/scroll-reveal";
 import { Toaster } from "@/components/ui/sonner";
 import { getSiteUrl } from "@/lib/utils";
 
@@ -95,6 +96,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <Navbar />
+        <ScrollReveal />
         {children}
         <Toaster />
       </body>

@@ -53,20 +53,20 @@ export async function Navbar() {
   ];
 
   return (
-    <header className="sticky top-0 z-40 border-b border-black/5 bg-white/65 shadow-[0_8px_30px_rgba(15,23,42,0.06)] backdrop-blur-[22px]">
-      <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4">
+    <header className="sticky top-0 z-50 border-b border-border bg-[rgba(10,10,10,0.82)] backdrop-blur-[20px]">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4">
         <Link
           href="/"
           className="flex items-center gap-3 font-semibold tracking-tight"
         >
           <Brand size="md" />
-          <span className="hidden text-sm text-black/60 sm:inline">
+          <span className="hidden text-sm text-muted-foreground sm:inline">
             World Cup 2026
           </span>
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-1.5 md:flex">
+        <nav className="hidden items-center gap-2 md:flex">
           <NavLink
             href="/fixtures"
             icon={<CalendarDays className="size-3.5" />}
@@ -160,7 +160,6 @@ export async function Navbar() {
 
 function NavLink({
   href,
-  icon,
   label,
 }: {
   href: string;
@@ -170,9 +169,8 @@ function NavLink({
   return (
     <Link
       href={href}
-      className={buttonVariants({ variant: "ghost", size: "sm" }) + " gap-1.5"}
+      className={buttonVariants({ variant: "ghost", size: "sm" })}
     >
-      {icon}
       <span className="hidden sm:inline">{label}</span>
     </Link>
   );
@@ -206,7 +204,7 @@ function UserMenu({
           />
         }
       >
-        <Avatar className="h-8 w-8 border border-black/10">
+        <Avatar className="h-8 w-8 border border-border">
           {image && (
             <AvatarImage src={image} alt={name} referrerPolicy="no-referrer" />
           )}
@@ -218,7 +216,7 @@ function UserMenu({
       <DropdownMenuContent align="end" className="w-60">
         <DropdownMenuGroup>
           <DropdownMenuLabel className="flex items-center gap-3">
-            <Avatar className="h-9 w-9 border border-black/10">
+            <Avatar className="h-9 w-9 border border-border">
               {image && (
                 <AvatarImage
                   src={image}

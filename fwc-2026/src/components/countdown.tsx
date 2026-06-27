@@ -46,7 +46,7 @@ export function Countdown({ targetIso, label }: { targetIso: string; label: stri
   }
 
   if (!state.parts) {
-    return <p className="font-mono text-sm text-black/55">{label} is in progress or already happened.</p>;
+    return <p className="font-mono text-sm text-muted-foreground">{label} is in progress or already happened.</p>;
   }
 
   return (
@@ -61,11 +61,11 @@ export function Countdown({ targetIso, label }: { targetIso: string; label: stri
 
 function Cell({ value, label }: { value: number; label: string }) {
   return (
-    <div className="rounded-2xl border border-white/70 bg-white/55 px-2 py-3 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.95)] backdrop-blur-xl sm:px-4 sm:py-4">
-      <div className="font-mono text-2xl font-bold tabular-nums text-black sm:text-4xl">
+    <div className="rounded-lg border border-border bg-secondary px-2 py-3 text-center transition-colors hover:border-[var(--border-hover)] sm:px-4 sm:py-4">
+      <div className="font-mono text-2xl font-bold tabular-nums text-foreground sm:text-4xl">
         {value.toString().padStart(2, "0")}
       </div>
-      <div className="mt-1 font-mono text-[10px] uppercase tracking-[0.1em] text-black/45 sm:text-xs">
+      <div className="mt-1 font-mono text-[10px] uppercase tracking-[0.1em] text-muted-foreground sm:text-xs">
         {label}
       </div>
     </div>
