@@ -184,7 +184,7 @@ function UserMenu({
 
       <DropdownMenuContent
         align="end"
-        className="w-60 rounded-2xl border border-white/30 bg-white/70 shadow-lg backdrop-blur-xl"
+        className="w-60 rounded-lg border border-white/30 bg-white/70 shadow-lg backdrop-blur-xl"
       >
         <DropdownMenuGroup>
           <DropdownMenuLabel className="flex items-center gap-3 py-3">
@@ -219,7 +219,7 @@ function UserMenu({
           render={
             <Link
               href="/settings"
-              className="flex cursor-pointer items-center gap-2 rounded-xl text-[13px] text-black/70 hover:text-black"
+              className="flex cursor-pointer items-center gap-2 rounded-md text-[13px] text-black/70 hover:text-black"
             />
           }
         >
@@ -235,7 +235,7 @@ function UserMenu({
             render={
               <button
                 type="submit"
-                className="flex w-full cursor-pointer items-center gap-2 rounded-xl text-[13px] text-black/70 hover:text-black"
+                className="flex w-full cursor-pointer items-center gap-2 rounded-md text-[13px] text-black/70 hover:text-black"
               />
             }
           >
