@@ -248,18 +248,18 @@ export default async function HomePage() {
                 </Link>
               </div>
               
-              <div className=" flex items-center justify-between gap-3  border-white/55 bg-white/30  backdrop-blur-xl px-4  animate-on-scroll mt-23 flex gap-3  sm:items-center sm:justify-start sm:gap-5 rounded-lg border border-border bg-background  py-1.5">
+              <div className="animate-on-scroll mt-23 flex flex-wrap items-center justify-between gap-4 sm:justify-start rounded-xl border border-white/50 bg-white/20 px-5 py-3 backdrop-blur-xl w-fit">
                 <div className="flex flex-col">
-                  <span className="text-[28px] font-light text-gray-900">{displayCounts.teams}</span>
-                  <span className="text-[11px] font-medium text-gray-500 capitalize mt-1 tracking-wide">Teams</span>
+                  <span className="text-2xl sm:text-[28px] font-light text-gray-900 leading-none">{displayCounts.teams}</span>
+                  <span className="text-[10px] sm:text-[11px] font-medium text-gray-600 uppercase mt-1.5 tracking-wider">Teams</span>
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-[28px] font-light text-gray-900">{displayCounts.matches}</span>
-                  <span className="text-[11px] font-medium text-gray-500 capitalize mt-1 tracking-wide">Matches</span>
+                  <span className="text-2xl sm:text-[28px] font-light text-gray-900 leading-none">{displayCounts.matches}</span>
+                  <span className="text-[10px] sm:text-[11px] font-medium text-gray-600 uppercase mt-1.5 tracking-wider">Matches</span>
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-[28px] font-light text-gray-900">{displayCounts.users}</span>
-                  <span className="text-[11px] font-medium text-gray-500 capitalize mt-1 tracking-wide">Predictors</span>
+                  <span className="text-2xl sm:text-[28px] font-light text-gray-900 leading-none">{displayCounts.users}</span>
+                  <span className="text-[10px] sm:text-[11px] font-medium text-gray-600 uppercase mt-1.5 tracking-wider">Predictors</span>
                 </div>
               </div>
             </div>
@@ -329,7 +329,7 @@ export default async function HomePage() {
                           <p className="text-[27px] font-normal leading-none text-[#0A0A0F] min-[360px]:text-[31px]">{displayCounts.users}+</p>
                       
                         </div>
-                        <p className="shrink-0 font-medium  mt-2.5 text-[10px] font-light text-[10px] text-[#4F46E5] uppercase truncate">Currently Playing</p>
+                        <p className="shrink-0 font-medium  mt-2.5 text-[10px] font-light text-[10px] text-[#4F46E5] uppercase truncate">Users Playing</p>
                       </div>
                     </div>
 
