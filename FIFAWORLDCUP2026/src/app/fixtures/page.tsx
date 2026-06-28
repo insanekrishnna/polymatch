@@ -281,7 +281,7 @@ function ScheduleFallback({ hasFilters }: { hasFilters: boolean }) {
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
               <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-                <Radio className="size-3.5 text-primary" />
+                <Radio className="size-3.5 text-gray-500" strokeWidth={1} />
                 featured schedule board
               </div>
               <h2 className="mt-1 font-display text-2xl font-bold">
@@ -304,7 +304,7 @@ function ScheduleFallback({ hasFilters }: { hasFilters: boolean }) {
                 <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
                   {fixture.phase}
                 </div>
-                <div className="rounded-full bg-primary/10 px-2 py-0.5 font-mono text-[10px] font-semibold text-primary">
+                <div className="rounded-full bg-transparent px-2 py-0.5 font-mono text-[10px] font-semibold text-primary">
                   {fixture.price}
                 </div>
               </div>
@@ -346,7 +346,7 @@ function ScheduleFallback({ hasFilters }: { hasFilters: boolean }) {
             className="rounded-xl border border-border/60 bg-card/60 p-4 backdrop-blur"
           >
             <div className="flex items-center gap-2 text-muted-foreground">
-              <ShieldCheck className="size-4 text-primary" />
+              <ShieldCheck className="size-4 text-gray-500" strokeWidth={1} />
               <span className="text-[10px] font-semibold uppercase tracking-[0.16em]">
                 {item.label}
               </span>
@@ -428,7 +428,7 @@ function FilterChip({
       className={cn(
         "inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-medium transition-colors",
         active
-          ? "border-primary/60 bg-primary/15 text-primary"
+          ? "border-primary/60 bg-transparent text-primary"
           : "border-border/60 bg-background/50 text-muted-foreground hover:border-primary/40 hover:text-foreground",
       )}
     >

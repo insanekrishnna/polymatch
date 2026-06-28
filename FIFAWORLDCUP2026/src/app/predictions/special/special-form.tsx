@@ -65,7 +65,7 @@ export function SpecialForm({
 
       <Card className="border-primary/20 bg-card/70 backdrop-blur">
         <CardHeader className="flex-row items-center gap-2 space-y-0 pb-3">
-          <Trophy className="size-4 text-primary" />
+          <Trophy className="size-4 text-gray-500" strokeWidth={1} />
           <CardTitle className="text-base">Champion and Runner-up</CardTitle>
         </CardHeader>
         <CardContent className="grid gap-4 sm:grid-cols-2">

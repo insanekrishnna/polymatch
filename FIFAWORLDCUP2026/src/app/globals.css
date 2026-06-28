@@ -10,42 +10,21 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-sans);
   --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-heading);
-  --font-display: var(--font-display);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
+  --font-heading: var(--font-sans);
+  --font-display: var(--font-sans);
+  
   --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
   --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
-  --color-card: var(--card);
-  --color-pitch: var(--pitch);
-  --color-pitch-foreground: var(--pitch-foreground);
-  --color-gold: var(--gold);
-  --color-silver: var(--silver);
-  --color-bronze: var(--bronze);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -58,63 +37,32 @@
 :root {
   color-scheme: dark;
 
-  --bg-primary: #0a0a0a;
-  --bg-secondary: #111111;
-  --bg-tertiary: #1a1a1a;
-  --bg-border: #1f1f1f;
-  --accent: #67e8ae;
-  --accent-soft: rgba(103, 232, 174, 0.12);
-  --accent-border: rgba(103, 232, 174, 0.25);
-  --text-primary: #ffffff;
-  --text-secondary: #a1a1aa;
-  --text-muted: #52525b;
-  --text-accent: #67e8ae;
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-hover: rgba(255, 255, 255, 0.15);
-  --success: #4ade80;
-  --warning: #facc15;
-  --error: #f87171;
+  /* Color Palette */
+  --bg-primary: #ffffff;
+  --accent: #1e996d; /* Extracted green from stadium */
+  --text-primary: #000000;
+  --text-secondary: #333333;
+  --text-muted: #666666;
 
-  --background: var(--bg-primary);
+  /* Glassmorphism System Colors */
+  --glass-base: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(0, 0, 0, 0.1);
+  --glass-highlight: rgba(255, 255, 255, 0.8);
+  
+  /* Shadcn Map */
+  --background: transparent;
   --foreground: var(--text-primary);
-  --card: var(--bg-secondary);
-  --card-foreground: var(--text-primary);
-  --popover: var(--bg-secondary);
-  --popover-foreground: var(--text-primary);
   --primary: var(--accent);
-  --primary-foreground: var(--bg-primary);
-  --secondary: var(--bg-tertiary);
+  --primary-foreground: #ffffff;
+  --secondary: var(--glass-base);
   --secondary-foreground: var(--text-primary);
-  --muted: rgba(255, 255, 255, 0.055);
-  --muted-foreground: var(--text-secondary);
-  --accent-foreground: var(--bg-primary);
-  --destructive: var(--error);
-  --border: var(--border-subtle);
-  --input: rgba(255, 255, 255, 0.1);
-  --ring: var(--accent);
-  --chart-1: var(--accent);
-  --chart-2: #ffffff;
-  --chart-3: var(--warning);
-  --chart-4: var(--text-secondary);
-  --chart-5: var(--text-muted);
-  --radius: 0.5rem;
-  --sidebar: var(--bg-secondary);
-  --sidebar-foreground: var(--text-primary);
-  --sidebar-primary: var(--accent);
-  --sidebar-primary-foreground: var(--bg-primary);
-  --sidebar-accent: var(--bg-tertiary);
-  --sidebar-accent-foreground: var(--text-primary);
-  --sidebar-border: var(--border-subtle);
-  --sidebar-ring: var(--accent);
-  --pitch: var(--accent);
-  --pitch-foreground: var(--bg-primary);
-  --gold: var(--warning);
-  --silver: var(--text-secondary);
-  --bronze: #bf7a45;
-}
-
-.light {
-  color-scheme: dark;
+  --muted: rgba(0, 0, 0, 0.05);
+  --muted-foreground: var(--text-muted);
+  --accent-foreground: var(--text-primary);
+  --border: var(--glass-border);
+  --input: rgba(0, 0, 0, 0.05);
+  --ring: rgba(0, 0, 0, 0.2);
+  --radius: 1.25rem;
 }
 
 @layer base {
@@ -124,53 +72,44 @@
 
   html {
     @apply font-sans;
-    background: var(--bg-primary);
+    background: #ffffff;
+    scroll-behavior: smooth;
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
     min-width: 320px;
     color: var(--text-primary);
-    background-color: var(--bg-primary);
-    background-image:
-      radial-gradient(ellipse at 50% 0%, rgba(103, 232, 174, 0.06) 0%, transparent 62%),
-      linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
-    background-size: auto, 48px 48px, 48px 48px;
+    
+    /* Global Apple Cinematic Background */
+    background-color: #ffffff;
+    background-image: linear-gradient(180deg, #ffffff 0%, #ffffff 30%, rgba(255,255,255,0) 85%), url('/green.jpg');
+    background-size: cover;
+    background-position: center;
     background-attachment: fixed;
+    background-repeat: no-repeat;
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: var(--font-display), var(--font-sans), ui-sans-serif, system-ui, sans-serif;
-    letter-spacing: 0;
+  h1, h2, h3, h4, h5, h6 {
+    /* Scale down headings by ~20-30% via clamp or custom classes later, but set crisp tracking globally */
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", system-ui, sans-serif;
+    letter-spacing: -0.02em;
     color: var(--text-primary);
-    -webkit-text-fill-color: currentColor;
   }
 
-  input[type="number"]::-webkit-outer-spin-button,
-  input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+  p, span, a, div {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", system-ui, sans-serif;
   }
 
-  input[type="number"] {
-    -moz-appearance: textfield;
-    appearance: textfield;
-  }
-
+  /* Custom Scrollbar for Apple feel */
   * {
     scrollbar-width: thin;
-    scrollbar-color: rgba(103, 232, 174, 0.42) transparent;
+    scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
   }
 
   *::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
   }
 
   *::-webkit-scrollbar-track {
@@ -178,131 +117,74 @@
   }
 
   *::-webkit-scrollbar-thumb {
-    background-color: rgba(103, 232, 174, 0.35);
+    background-color: rgba(255, 255, 255, 0.2);
     border-radius: 9999px;
     border: 2px solid transparent;
     background-clip: content-box;
-    transition: background-color 0.15s ease;
   }
 
   *::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(103, 232, 174, 0.6);
-    background-clip: content-box;
-  }
-
-  *::-webkit-scrollbar-corner {
-    background: transparent;
+    background-color: rgba(255, 255, 255, 0.4);
   }
 }
 
-@utility bg-pitch-stripes {
-  background-image: repeating-linear-gradient(
-    0deg,
-    rgba(103, 232, 174, 0.08) 0 2px,
-    transparent 2px 24px
-  );
+/* ─────────────────────────────────────────────────────────────────────────────
+   APPLE GLASSMORPHISM UTILITIES
+   ───────────────────────────────────────────────────────────────────────────── */
+
+@utility glass-panel {
+  background-color: var(--glass-base);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  border-radius: 24px;
 }
 
-@keyframes bunting-sway {
-  0%,
-  100% {
-    transform: rotate(-5deg);
-  }
-  50% {
-    transform: rotate(5deg);
-  }
+@utility glass-navbar {
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border-radius: 9999px; /* Pill shape */
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@keyframes bunting-scroll {
-  from {
-    transform: translate3d(0, 0, 0);
-  }
-  to {
-    transform: translate3d(-50%, 0, 0);
-  }
-}
-
-@utility bunting-track {
-  animation: bunting-scroll 60s linear infinite;
-  will-change: transform;
-}
-
-.bunting-track:hover {
-  animation-play-state: paused;
-}
-
-@utility bunting-pennant {
-  transform-origin: 50% 0;
-  animation: bunting-sway 2.8s ease-in-out infinite;
-  will-change: transform;
-}
-
-@utility bunting-gust {
-  transform-origin: 50% 0;
-  transform: rotate(var(--gust, 0deg));
-  transition: transform 80ms linear;
-  will-change: transform;
-}
-
-@utility bg-dots {
-  background-image: radial-gradient(
-    rgba(255, 255, 255, 0.045) 1px,
-    transparent 1px
-  );
-  background-size: 18px 18px;
+@utility glass-navbar-scrolled {
+  background-color: rgba(255, 255, 255, 0.85);
+  transform: scale(0.98);
 }
 
 @utility text-heading-gradient {
-  background: linear-gradient(135deg, #ffffff 0%, #67e8ae 100%);
+  background: linear-gradient(135deg, #000000 0%, #666666 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
 }
 
-@utility terminal-card {
-  border: 1px solid var(--border-subtle);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.018));
-  box-shadow: none;
-  backdrop-filter: blur(20px) saturate(140%);
+@utility text-accent-gradient {
+  background: linear-gradient(135deg, #000000 0%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
 }
 
-.gradient-line {
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(103, 232, 174, 0.3), transparent);
-}
-
-.section-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--accent);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0;
-  line-height: 1;
-  text-transform: uppercase;
-}
-
-.section-eyebrow::before {
-  content: "";
-  width: 6px;
-  height: 6px;
-  border-radius: 999px;
-  background: var(--accent);
-}
+/* ─────────────────────────────────────────────────────────────────────────────
+   ANIMATIONS
+   ───────────────────────────────────────────────────────────────────────────── */
 
 .animate-on-scroll {
   opacity: 1;
   transform: translateY(0);
-  transition:
-    opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal-ready .animate-on-scroll {
   opacity: 0;
-  transform: translateY(24px);
+  transform: translateY(20px);
 }
 
 .reveal-ready .animate-on-scroll.animate-in {
@@ -310,44 +192,18 @@
   transform: translateY(0);
 }
 
-.animate-stagger > *:nth-child(1) {
-  transition-delay: 0ms;
+/* Hover effects for glass cards */
+.glass-hover-effect {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
-
-.animate-stagger > *:nth-child(2) {
-  transition-delay: 80ms;
-}
-
-.animate-stagger > *:nth-child(3) {
-  transition-delay: 160ms;
-}
-
-.animate-stagger > *:nth-child(4) {
-  transition-delay: 240ms;
-}
-
-[class*="tracking-"] {
-  letter-spacing: 0 !important;
-}
-
-.text-\[9px\],
-.text-\[10px\],
-.text-\[11px\],
-.text-xs {
-  font-size: 13px !important;
-  line-height: 1.45 !important;
+.glass-hover-effect:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  border-color: rgba(0, 0, 0, 0.15);
+  background-color: rgba(255, 255, 255, 0.8);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .bunting-pennant,
-  .bunting-track {
-    animation: none;
-  }
-
-  .bunting-gust {
-    transform: none;
-  }
-
   .animate-on-scroll {
     opacity: 1;
     transform: none;

@@ -98,7 +98,9 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <Navbar />
         <ScrollReveal />
-        {children}
+        <main className="flex-1 mx-auto w-full max-w-[1400px] px-6 sm:px-8 lg:px-12 py-12">
+          {children}
+        </main>
         <Toaster />
         <Analytics />
       </body>

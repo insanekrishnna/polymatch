@@ -54,7 +54,7 @@ export default async function SettingsPage() {
       <div className="space-y-4">
         <Card className="bg-card/70 backdrop-blur">
           <CardHeader className="flex-row items-center gap-2 space-y-0 pb-3">
-            <Globe2 className="size-4 text-primary" />
+            <Globe2 className="size-4 text-gray-500" strokeWidth={1} />
             <CardTitle className="text-base">Timezone</CardTitle>
           </CardHeader>
           <CardContent className="space-y-3">
@@ -74,7 +74,7 @@ export default async function SettingsPage() {
 
         <Card className="bg-card/70 backdrop-blur">
           <CardHeader className="flex-row items-center gap-2 space-y-0 pb-3">
-            <Clock className="size-4 text-primary" />
+            <Clock className="size-4 text-gray-500" strokeWidth={1} />
             <CardTitle className="text-base">Time format</CardTitle>
           </CardHeader>
           <CardContent className="space-y-3">

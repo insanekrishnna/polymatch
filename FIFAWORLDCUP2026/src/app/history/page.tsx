@@ -49,7 +49,7 @@ export default function HistoryPage() {
 
       <section className="space-y-4">
         <h2 className="flex items-center gap-2 font-display text-xl font-bold">
-          <Users className="size-5 text-primary" />
+          <Users className="size-5 text-gray-500" strokeWidth={1} />
           Current Tournament Snapshot
         </h2>
         <CurrentTournamentCard />
@@ -68,7 +68,7 @@ export default function HistoryPage() {
 
       <section className="space-y-4">
         <h2 className="flex items-center gap-2 font-display text-xl font-bold">
-          <MapPin className="size-5 text-primary" />
+          <MapPin className="size-5 text-gray-500" strokeWidth={1} />
           Most Frequent Hosts
         </h2>
         <HostsList hosts={hosts} />
@@ -76,7 +76,7 @@ export default function HistoryPage() {
 
       <section className="space-y-4">
         <h2 className="flex items-center gap-2 font-display text-xl font-bold">
-          <Calendar className="size-5 text-primary" />
+          <Calendar className="size-5 text-gray-500" strokeWidth={1} />
           All Editions
         </h2>
         <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">

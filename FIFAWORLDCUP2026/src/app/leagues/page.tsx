@@ -74,7 +74,7 @@ export default async function LeaguesPage() {
         <Card className="border-border/60 bg-card/70 backdrop-blur">
           <CardHeader className="pb-3">
             <CardTitle className="flex items-center gap-2 text-base">
-              <Plus className="size-4 text-primary" />
+              <Plus className="size-4 text-gray-500" strokeWidth={1} />
               Create a league
             </CardTitle>
           </CardHeader>
@@ -86,7 +86,7 @@ export default async function LeaguesPage() {
         <Card className="border-border/60 bg-card/70 backdrop-blur">
           <CardHeader className="pb-3">
             <CardTitle className="flex items-center gap-2 text-base">
-              <Users className="size-4 text-primary" />
+              <Users className="size-4 text-gray-500" strokeWidth={1} />
               Join with code
             </CardTitle>
           </CardHeader>
@@ -104,7 +104,7 @@ export default async function LeaguesPage() {
         {memberships.length === 0 ? (
           <Card className="border-border/60 bg-card/60 backdrop-blur">
             <CardContent className="space-y-5 py-5">
-              <div className="rounded-xl border border-primary/25 bg-primary/10 p-4">
+              <div className="rounded-xl border border-primary/25 bg-transparent p-4">
                 <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">
                   <Users className="size-3.5" />
                   private pool preview

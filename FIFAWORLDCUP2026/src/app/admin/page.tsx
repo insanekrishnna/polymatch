@@ -48,7 +48,7 @@ export default async function AdminHome() {
       <div className="mt-6 grid gap-4 sm:grid-cols-2">
         <ActionCard
           href="/admin/matches"
-          icon={<Swords className="size-4 text-primary" />}
+          icon={<Swords className="size-4 text-gray-500" strokeWidth={1} />}
           title="Match Results"
           description="Enter actual scores. For tied knockout matches, record the winner (ET/pen)."
           cta="Go to Matches"
@@ -63,7 +63,7 @@ export default async function AdminHome() {
 
         <Card className="sm:col-span-2 bg-card/70 backdrop-blur">
           <CardHeader className="flex-row items-center gap-2 space-y-0">
-            <Calculator className="size-4 text-primary" />
+            <Calculator className="size-4 text-gray-500" strokeWidth={1} />
             <CardTitle className="text-base">Recalculate Scores</CardTitle>
           </CardHeader>
           <CardContent className="flex flex-col gap-3 text-sm">

@@ -736,7 +736,7 @@ function MobileBracket({
               className={cn(
                 "flex flex-none items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-medium transition-colors",
                 idx === activeStage
-                  ? "border-primary/60 bg-primary/10 text-primary"
+                  ? "border-primary/60 bg-transparent text-primary"
                   : "border-border/60 bg-card/60 text-muted-foreground hover:text-foreground",
               )}
             >
@@ -923,7 +923,7 @@ function TeamRow({
     <div
       className={cn(
         "flex items-center justify-between gap-1.5 px-2 py-1 transition-colors",
-        isWinner && "bg-primary/10",
+        isWinner && "bg-transparent",
       )}
     >
       <div className="flex min-w-0 flex-1 items-center gap-1.5">

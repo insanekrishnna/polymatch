@@ -31,7 +31,7 @@ export default async function NoticiasPage() {
   return (
     <main className="mx-auto w-full max-w-6xl px-4 py-8">
       <header className="mb-6 flex items-center gap-3">
-        <div className="flex size-10 items-center justify-center rounded-full bg-primary/10 text-primary">
+        <div className="flex size-10 items-center justify-center rounded-full bg-transparent text-primary">
           <Newspaper className="size-5" />
         </div>
         <div>

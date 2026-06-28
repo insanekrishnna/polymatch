@@ -25,6 +25,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { logoutAction } from "@/lib/actions/auth";
 import { Brand } from "@/components/brand";
 import { MobileNav, type MobileNavItem } from "@/components/mobile-nav";
+import { NavbarWrapper } from "@/components/navbar-wrapper";
 
 export async function Navbar() {
   const user = await getCurrentUser();
@@ -53,58 +54,29 @@ export async function Navbar() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-[rgba(10,10,10,0.82)] backdrop-blur-[20px]">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4">
+    <NavbarWrapper>
         <Link
           href="/"
           className="flex items-center gap-3 font-semibold tracking-tight"
         >
           <Brand size="md" />
-          <span className="hidden text-sm text-muted-foreground sm:inline">
+          <span className="hidden text-sm font-light text-gray-500 sm:inline">
             World Cup 2026
           </span>
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-2 md:flex">
-          <NavLink
-            href="/fixtures"
-            icon={<CalendarDays className="size-3.5" />}
-            label="Schedule"
-          />
-          <NavLink
-            href="/news"
-            icon={<Newspaper className="size-3.5" />}
-            label="News"
-          />
-          <NavLink
-            href="/history"
-            icon={<History className="size-3.5" />}
-            label="History"
-          />
+        <nav className="hidden items-center gap-4 md:flex">
+          <NavLink href="/fixtures" label="Schedule" />
+          <NavLink href="/news" label="News" />
+          <NavLink href="/history" label="History" />
           {user ? (
             <>
-              <NavLink
-                href="/predictions"
-                icon={<Swords className="size-3.5" />}
-                label="Predictions"
-              />
-              <NavLink
-                href="/leagues"
-                icon={<Users className="size-3.5" />}
-                label="Leagues"
-              />
-              <NavLink
-                href="/ranking"
-                icon={<Trophy className="size-3.5" />}
-                label="Leaderboard"
-              />
+              <NavLink href="/predictions" label="Predictions" />
+              <NavLink href="/leagues" label="Leagues" />
+              <NavLink href="/ranking" label="Leaderboard" />
               {user.role === "ADMIN" && (
-                <NavLink
-                  href="/admin"
-                  icon={<Shield className="size-3.5" />}
-                  label="Admin"
-                />
+                <NavLink href="/admin" label="Admin" />
               )}
               <UserMenu
                 name={user.name ?? "User"}
@@ -115,18 +87,10 @@ export async function Navbar() {
           ) : (
             <>
               <Link
-                href="/settings"
-                className={buttonVariants({ variant: "ghost", size: "sm" }) + " gap-1.5"}
-                aria-label="Preferences"
-              >
-                <Settings className="size-3.5" />
-                <span>Preferences</span>
-              </Link>
-              <Link
                 href="/login"
                 className={buttonVariants({ variant: "ghost", size: "sm" })}
               >
-                Sign in
+                Log in
               </Link>
               <Link href="/register" className={buttonVariants({ size: "sm" })}>
                 Sign up
@@ -153,8 +117,7 @@ export async function Navbar() {
           )}
           <MobileNav items={mobileItems} authed={!!user} />
         </div>
-      </div>
-    </header>
+    </NavbarWrapper>
   );
 }
 
@@ -163,15 +126,14 @@ function NavLink({
   label,
 }: {
   href: string;
-  icon: React.ReactNode;
   label: string;
 }) {
   return (
     <Link
       href={href}
-      className={buttonVariants({ variant: "ghost", size: "sm" })}
+      className="flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[14px] font-light text-gray-500 transition-colors hover:text-gray-900"
     >
-      <span className="hidden sm:inline">{label}</span>
+      {label}
     </Link>
   );
 }
@@ -208,7 +170,7 @@ function UserMenu({
           {image && (
             <AvatarImage src={image} alt={name} referrerPolicy="no-referrer" />
           )}
-          <AvatarFallback className="bg-primary/10 text-xs font-semibold text-primary">
+          <AvatarFallback className="bg-transparent text-xs font-semibold text-primary">
             {initials}
           </AvatarFallback>
         </Avatar>
@@ -224,7 +186,7 @@ function UserMenu({
                   referrerPolicy="no-referrer"
                 />
               )}
-              <AvatarFallback className="bg-primary/10 text-xs font-semibold text-primary">
+              <AvatarFallback className="bg-transparent text-xs font-semibold text-primary">
                 {initials}
               </AvatarFallback>
             </Avatar>

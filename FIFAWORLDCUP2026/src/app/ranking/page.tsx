@@ -94,13 +94,13 @@ export default async function RankingPage() {
             Current leaderboard for the predictions pool. Recalculated when the admin updates match results.
           </p>
         </div>
-        <TrendingUp className="hidden size-8 text-primary sm:block" />
+        <TrendingUp className="hidden size-8 text-gray-500 sm:block" strokeWidth={1} />
       </div>
 
       <Card className="overflow-hidden border-border/60 bg-card/70 backdrop-blur">
         <CardHeader className="flex-row items-center justify-between space-y-0 border-b border-border/40 pb-3">
           <CardTitle className="flex items-center gap-2 text-base">
-            <Trophy className="size-4 text-primary" />
+            <Trophy className="size-4 text-gray-500" strokeWidth={1} />
             {rows.length} {rows.length === 1 ? "participant" : "participants"}
           </CardTitle>
         </CardHeader>
@@ -121,7 +121,7 @@ export default async function RankingPage() {
                 >
                   <Position pos={pos} />
                   <Avatar className="h-10 w-10 border border-border/60">
-                    <AvatarFallback className="bg-primary/15 text-xs font-semibold text-primary">
+                    <AvatarFallback className="bg-transparent text-xs font-semibold text-primary">
                       {(u.name ?? u.username ?? "??").slice(0, 2).toUpperCase()}
                     </AvatarFallback>
                   </Avatar>
@@ -180,7 +180,7 @@ export default async function RankingPage() {
             className="rounded-xl border border-border/60 bg-card/60 p-4 backdrop-blur"
           >
             <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-              <ShieldCheck className="size-3.5 text-primary" />
+              <ShieldCheck className="size-3.5 text-gray-500" strokeWidth={1} />
               {item.label}
             </div>
             <div className="mt-2 font-display text-xl font-bold">
@@ -199,7 +199,7 @@ export default async function RankingPage() {
 function SampleLeaderboard() {
   return (
     <div className="space-y-4 p-4">
-      <div className="rounded-xl border border-primary/25 bg-primary/10 p-4">
+      <div className="rounded-xl border border-primary/25 bg-transparent p-4">
         <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">
           <Users className="size-3.5" />
           sample leaderboard
@@ -215,7 +215,7 @@ function SampleLeaderboard() {
           <li key={u.handle} className="flex items-center gap-3 px-4 py-3">
             <Position pos={idx + 1} />
             <Avatar className="h-10 w-10 border border-border/60">
-              <AvatarFallback className="bg-primary/15 text-xs font-semibold text-primary">
+              <AvatarFallback className="bg-transparent text-xs font-semibold text-primary">
                 {u.name.slice(0, 2).toUpperCase()}
               </AvatarFallback>
             </Avatar>

@@ -144,7 +144,7 @@ export default async function LeagueDetailPage({
       <Card className="overflow-hidden border-border/60 bg-card/70 backdrop-blur">
         <CardHeader className="flex-row items-center justify-between space-y-0 border-b border-border/40 pb-3">
           <CardTitle className="flex items-center gap-2 text-base">
-            <Trophy className="size-4 text-primary" />
+            <Trophy className="size-4 text-gray-500" strokeWidth={1} />
             Leaderboard ({rows.length})
           </CardTitle>
           <span className="flex items-center gap-1 text-xs text-muted-foreground">
@@ -166,7 +166,7 @@ export default async function LeagueDetailPage({
                 >
                   <Position pos={pos} />
                   <Avatar className="h-10 w-10 border border-border/60">
-                    <AvatarFallback className="bg-primary/15 text-xs font-semibold text-primary">
+                    <AvatarFallback className="bg-transparent text-xs font-semibold text-primary">
                       {r.name.slice(0, 2).toUpperCase()}
                     </AvatarFallback>
                   </Avatar>

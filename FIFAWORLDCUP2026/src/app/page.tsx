@@ -213,51 +213,124 @@ export default async function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <section className="relative min-h-[calc(100vh-4rem)] border-b border-border">
-        <ComputeOrbScene className="opacity-80 [mask-image:linear-gradient(to_bottom,transparent_0%,black_12%,black_82%,transparent_100%)]" />
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_8%,rgba(103,232,174,0.075),transparent_38%),linear-gradient(180deg,rgba(10,10,10,0.18)_0%,rgba(10,10,10,0.82)_78%,#0a0a0a_100%)]" />
-        <div className="relative z-10 mx-auto flex min-h-[calc(100vh-4rem)] max-w-6xl flex-col justify-center px-4 py-20">
-          <div className="mx-auto max-w-3xl text-center">
-            <div className="section-eyebrow animate-on-scroll mx-auto">
-              Tournament cloud for league pools
-            </div>
-            <h1 className="animate-on-scroll mt-6 text-5xl font-bold leading-[1.08] sm:text-6xl lg:text-7xl">
-              Prediction infrastructure for every{" "}
-              <span className="text-heading-gradient">World Cup pool</span>.
-            </h1>
-            <p className="animate-on-scroll mx-auto mt-6 max-w-xl text-base leading-7 text-muted-foreground sm:text-lg">
-              Ship score picks, brackets, private leagues and live rankings in
-              one fast interface built for serious tournament operators.
-            </p>
-            <div className="animate-on-scroll mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-              <Link href={primaryHref} className={buttonVariants({ size: "lg" }) + " gap-2"}>
-                <Terminal className="size-4" />
-                {primaryLabel}
-              </Link>
-              <Link
-                href={secondaryHref}
-                className={buttonVariants({ size: "lg", variant: "outline" }) + " gap-2"}
-              >
-                {secondaryLabel}
-                <ArrowRight className="size-4" />
-              </Link>
-            </div>
-          </div>
-
-          <div className="animate-on-scroll mx-auto mt-14 w-full max-w-5xl rounded-lg border border-border bg-[rgba(17,17,17,0.78)] p-3 backdrop-blur-xl">
-            <div className="flex items-center gap-2 border-b border-border px-3 pb-3 font-mono text-sm text-muted-foreground">
-              <span className="size-2 rounded-full bg-primary" />
-              polymatch tournament runtime
-            </div>
-            <div className="grid gap-3 p-3 lg:grid-cols-[1.15fr_0.85fr]">
-              <div className="rounded-lg border border-border bg-background p-4 font-mono text-sm">
-                <CodeLine command="load world_cup_2026" result={`${displayCounts.teams} teams`} />
-                <CodeLine command="compile fixtures" result={`${displayCounts.matches} matches`} />
-                <CodeLine command="open private_leagues" result={`${displayCounts.users} users`} />
-                <CodeLine command="status" result="ready for predictions" accent />
+      <section className="relative min-h-[calc(100vh-4rem)]">
+        <div className="relative z-10 mx-auto flex max-w-[1400px] items-start pt-5 pb-20 px-6">
+          <div className="grid w-full items-center gap-10 lg:gap-16 lg:grid-cols-[40%_60%] xl:grid-cols-[45%_55%]">
+            
+            {/* Left Side Typography */}
+            <div className="max-w-xl text-left">
+              <div className="animate-on-scroll mb-4 flex items-center gap-3 text-sm font-medium text-gray-700 tracking-wide uppercase ">
+                <span className="inline-flex items-center gap-2 rounded-full bg-black/5 border border-black/10 px-4 py-2 text-xs font-medium text-gray-700 backdrop-blur-md transition-colors hover:bg-black/10 hover:border-black/20">
+                  <span className="size-1.5 rounded-full bg-primary" />
+                  <span>World Cup 2026</span>
+                </span>
               </div>
-              <KickoffPanel firstMatch={firstMatch} />
+              
+              <h1 className="animate-on-scroll text-4xl sm:text-2xl lg:text-5xl font-semibold text-gray-900 leading-[1.05] tracking-tight">
+                Predict. <span className="text-accent-gradient">Compete.</span><br/>
+                <span className="text-accent-gradient">Win the pool.</span>
+              </h1>
+              
+              <p className="animate-on-scroll mt-8 max-w-[400px] text-[17px] font-light leading-relaxed text-gray-600">
+                Ship score picks, brackets, private leagues and live rankings in one clean interface built for serious tournament players.
+              </p>
+              
+              <div className="animate-on-scroll mt-10 flex gap-4">
+                <Link href={primaryHref} className={buttonVariants({ size: "lg" }) + " gap-2"}>
+                  {primaryLabel} <ArrowRight className="size-4" />
+                </Link>
+                <Link href={secondaryHref} className={buttonVariants({ size: "lg", variant: "outline" })}>
+                  {secondaryLabel}
+                </Link>
+              </div>
+              
+              <div className="animate-on-scroll mt-16 flex gap-10">
+                <div className="flex flex-col">
+                  <span className="text-[28px] font-light text-gray-900">{displayCounts.teams}</span>
+                  <span className="text-[11px] font-medium text-gray-500 capitalize mt-1 tracking-wide">Teams</span>
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-[28px] font-light text-gray-900">{displayCounts.matches}</span>
+                  <span className="text-[11px] font-medium text-gray-500 capitalize mt-1 tracking-wide">Matches</span>
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-[28px] font-light text-gray-900">{displayCounts.users}</span>
+                  <span className="text-[11px] font-medium text-gray-500 capitalize mt-1 tracking-wide">Players</span>
+                </div>
+              </div>
             </div>
+
+            {/* Right: Glass Card */}
+            <div className="animate-on-scroll">
+              <div className="relative glass-panel glass-hover-effect p-6 sm:p-8">
+                
+                <div className="flex flex-col">
+                  
+                  {/* Header */}
+                  <div className="flex items-center justify-between mb-6 pr-2">
+                    <div className="flex items-center gap-2">
+                      <span className="size-2 rounded-full bg-primary" />
+                      <span className="text-[11px] font-semibold uppercase tracking-widest text-gray-600">
+                        Tournament Runtime
+                      </span>
+                    </div>
+                    <span className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+                      Live
+                    </span>
+                  </div>
+
+                  {/* Stats Grid */}
+                  <div className="grid grid-cols-2 gap-4 mb-8">
+                    {/* Teams Card */}
+                    <div className="flex flex-col bg-white/60 backdrop-blur-md rounded-[20px] p-5 sm:p-6 border border-white/60 shadow-sm transition-transform hover:scale-[1.02]">
+                      <div className="flex justify-between items-start mb-6">
+                        <span className="text-[40px] sm:text-[46px] font-light text-gray-900 leading-none tracking-tight">{displayCounts.teams}</span>
+                        <span className="text-[11px] font-medium text-primary bg-primary/10 px-2 py-0.5 rounded-full">+32</span>
+                      </div>
+                      <span className="text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.15em] text-gray-500">Teams</span>
+                    </div>
+                    
+                    {/* Matches Card */}
+                    <div className="flex flex-col bg-white/60 backdrop-blur-md rounded-[20px] p-5 sm:p-6 border border-white/60 shadow-sm transition-transform hover:scale-[1.02]">
+                      <div className="flex justify-between items-start mb-6">
+                        <span className="text-[40px] sm:text-[46px] font-light text-gray-900 leading-none tracking-tight">{displayCounts.matches}</span>
+                        <span className="text-[11px] font-medium text-primary bg-primary/10 px-2 py-0.5 rounded-full">+104</span>
+                      </div>
+                      <span className="text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.15em] text-gray-500">Matches</span>
+                    </div>
+                    
+                    {/* Groups Card */}
+                    <div className="flex flex-col bg-white/60 backdrop-blur-md rounded-[20px] p-5 sm:p-6 border border-white/60 shadow-sm transition-transform hover:scale-[1.02]">
+                      <div className="flex justify-between items-start mb-6">
+                        <span className="text-[40px] sm:text-[46px] font-light text-gray-900 leading-none tracking-tight">{displayCounts.groups}</span>
+                        <span className="text-[11px] font-medium text-orange-600 bg-orange-600/10 px-2 py-0.5 rounded-full">12 active</span>
+                      </div>
+                      <span className="text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.15em] text-gray-500">Groups</span>
+                    </div>
+                    
+                    {/* Players Card */}
+                    <div className="flex flex-col bg-white/60 backdrop-blur-md rounded-[20px] p-5 sm:p-6 border border-white/60 shadow-sm transition-transform hover:scale-[1.02]">
+                      <div className="flex justify-between items-start mb-6">
+                        <span className="text-[40px] sm:text-[46px] font-light text-gray-900 leading-none tracking-tight">{displayCounts.users}</span>
+                        <span className="text-[11px] font-medium text-blue-600 bg-blue-600/10 px-2 py-0.5 rounded-full">+12%</span>
+                      </div>
+                      <span className="text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.15em] text-gray-500">Players</span>
+                    </div>
+                  </div>
+
+                  {/* System Status Lists */}
+                  <div className="flex flex-col flex-1 bg-white/60 backdrop-blur-md rounded-[20px] p-5 sm:p-6 border border-white/60 shadow-sm">
+                    <div className="flex flex-col gap-2">
+                      <StatusRow label="Prediction engine" status="active" />
+                      <StatusRow label="Score pipeline" status="active" />
+                      <StatusRow label="League rankings" status="active" />
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
@@ -309,7 +382,7 @@ export default async function HomePage() {
                   key={benefit.title}
                   className="rounded-lg border border-border bg-card p-6 transition-colors duration-200 hover:border-[var(--border-hover)] hover:bg-secondary"
                 >
-                  <div className="grid size-10 place-items-center rounded-lg border border-primary/25 bg-primary/10 text-primary">
+                  <div className="grid size-10 place-items-center rounded-lg border border-primary/25 bg-transparent text-primary">
                     <Icon className="size-5" strokeWidth={1.5} />
                   </div>
                   <h3 className="mt-5 text-xl font-semibold">{benefit.title}</h3>
@@ -349,7 +422,7 @@ export default async function HomePage() {
                   "{item.quote}"
                 </blockquote>
                 <figcaption className="mt-5 flex items-center gap-2 text-sm text-muted-foreground">
-                  <CheckCircle2 className="size-4 text-primary" />
+                  <CheckCircle2 className="size-4 text-gray-500" strokeWidth={1} />
                   {item.name}
                 </figcaption>
               </figure>
@@ -431,54 +504,14 @@ export default async function HomePage() {
   );
 }
 
-function KickoffPanel({
-  firstMatch,
-}: {
-  firstMatch: FirstMatch;
-}) {
-  if (!firstMatch) {
-    return (
-      <div className="rounded-lg border border-border bg-[var(--bg-secondary)] p-4">
-        <PanelLabel icon={<Radio className="size-4" />}>sample countdown</PanelLabel>
-        <div className="mt-4 grid grid-cols-4 gap-2 text-center">
-          <CountdownTile value="364" label="days" />
-          <CountdownTile value="20" label="hours" />
-          <CountdownTile value="00" label="mins" />
-          <CountdownTile value="00" label="secs" />
-        </div>
-        <div className="mt-5 flex items-center justify-center gap-4 text-sm">
-          <TeamBadge code="MEX" name="Mexico" />
-          <span className="font-mono text-muted-foreground">vs</span>
-          <TeamBadge code={undefined} name="Opening opponent TBD" />
-        </div>
-      </div>
-    );
-  }
-
+function StatusRow({ label, status }: { label: string; status: string }) {
   return (
-    <div className="rounded-lg border border-border bg-[var(--bg-secondary)] p-4">
-      <PanelLabel icon={<Radio className="size-4" />}>live countdown</PanelLabel>
-      <div className="mt-4">
-        <Countdown
-          targetIso={firstMatch.date.toISOString()}
-          label="The opening match"
-        />
-      </div>
-      <div className="mt-5 flex items-center justify-center gap-4 text-sm">
-        <TeamBadge
-          code={firstMatch.homeTeam?.code}
-          name={firstMatch.homeTeam?.name}
-        />
-        <span className="font-mono text-muted-foreground">vs</span>
-        <TeamBadge
-          code={firstMatch.awayTeam?.code}
-          name={firstMatch.awayTeam?.name}
-        />
-      </div>
-      <div className="mt-4 flex items-center justify-center gap-1.5 font-mono text-sm text-muted-foreground">
-        <MapPin className="size-4" />
-        {firstMatch.venue}, {firstMatch.city}
-      </div>
+    <div className="flex items-center justify-between border-b border-black/10 py-3 last:border-0 hover:bg-black/5 px-2 rounded-md transition-colors -mx-2">
+      <span className="text-[13px] font-light text-gray-700">{label}</span>
+      <span className="inline-flex items-center gap-2 text-[11px] font-medium text-primary">
+        <span className="size-1.5 rounded-full bg-primary" />
+        {status}
+      </span>
     </div>
   );
 }

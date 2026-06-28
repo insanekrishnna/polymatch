@@ -59,7 +59,7 @@ export default async function PredictionsIndexPage() {
           </p>
           <div className="mt-3 flex items-center gap-3 text-xs text-muted-foreground">
             <div className="inline-flex items-center gap-1.5 rounded-full border border-border/60 bg-card/70 px-2.5 py-1">
-              <Check className="size-3 text-primary" />
+              <Check className="size-3 text-gray-500" strokeWidth={1} />
               <span className="tabular-nums">
                 {done}/{total} scores
               </span>
@@ -150,7 +150,7 @@ function PredictionsFallback() {
     <div className="space-y-5">
       <div className="terminal-card rounded-2xl p-5">
         <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-          <ShieldCheck className="size-3.5 text-primary" />
+          <ShieldCheck className="size-3.5 text-gray-500" strokeWidth={1} />
           prediction board preview
         </div>
         <h2 className="mt-2 font-display text-2xl font-bold">
@@ -178,7 +178,7 @@ function PredictionsFallback() {
                   {group.letter}
                 </span>
               </div>
-              <div className="rounded-full bg-primary/10 px-2.5 py-1 font-mono text-[11px] font-semibold text-primary">
+              <div className="rounded-full bg-transparent px-2.5 py-1 font-mono text-[11px] font-semibold text-primary">
                 sample
               </div>
             </div>
@@ -197,7 +197,7 @@ function PredictionsFallback() {
 
             <div className="mt-4 rounded-lg border border-border/50 bg-background/40 p-3">
               <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                <CalendarDays className="size-3.5 text-primary" />
+                <CalendarDays className="size-3.5 text-gray-500" strokeWidth={1} />
                 {group.angle}
               </div>
             </div>
