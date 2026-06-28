@@ -230,7 +230,7 @@ export default async function HomePage() {
                 </span>
               </div>
               
-              <h1 className="animate-on-scroll text-4xl sm:text-2xl lg:text-5xl font-semibold text-gray-900 leading-[1.05] tracking-tight">
+              <h1 className="animate-on-scroll text-4xl sm:text-5xl lg:text-5xl font-semibold text-gray-900 leading-[1.05] tracking-tight">
                 Predict. <span className="text-accent-gradient">Compete.</span><br/>
                 <span className="text-accent-gradient">Win the pool.</span>
               </h1>
@@ -248,7 +248,7 @@ export default async function HomePage() {
                 </Link>
               </div>
               
-              <div className="  animate-on-scroll mt-16 flex gap-10">
+              <div className=" flex items-center justify-between gap-3  border-white/55 bg-white/30  backdrop-blur-xl px-4  animate-on-scroll mt-23 flex gap-3  sm:items-center sm:justify-start sm:gap-5 rounded-lg border border-border bg-background  py-1.5">
                 <div className="flex flex-col">
                   <span className="text-[28px] font-light text-gray-900">{displayCounts.teams}</span>
                   <span className="text-[11px] font-medium text-gray-500 capitalize mt-1 tracking-wide">Teams</span>
@@ -259,14 +259,14 @@ export default async function HomePage() {
                 </div>
                 <div className="flex flex-col">
                   <span className="text-[28px] font-light text-gray-900">{displayCounts.users}</span>
-                  <span className="text-[11px] font-medium text-gray-500 capitalize mt-1 tracking-wide">Players</span>
+                  <span className="text-[11px] font-medium text-gray-500 capitalize mt-1 tracking-wide">Predictors</span>
                 </div>
               </div>
             </div>
 
             {/* Right: Glass Card matching Metamaxx reference */}
             <div className="animate-on-scroll">
-              <div className="relative overflow-hidden rounded-xl border border-white/60 bg-white/38 text-left shadow-[0_28px_90px_rgba(15,23,42,0.12)] backdrop-blur-2xl">
+              <div className="relative overflow-hidden rounded-xl border border-white/60 bg-white/38 text-left  backdrop-blur-2xl">
                 
                 {/* Top Mac Bar */}
                 <div className="flex items-center justify-between gap-3 border-b border-white/55 bg-white/30 px-3 py-2.5 backdrop-blur-xl min-[360px]:gap-4 min-[360px]:px-4 sm:px-5">
@@ -275,12 +275,12 @@ export default async function HomePage() {
                     <span className="h-2 w-2 rounded-full bg-[#FFBD44]/80"></span>
                     <span className="h-2 w-2 rounded-full bg-[#00CA4E]/80"></span>
                   </div>
-                  <div className="hidden min-w-0 items-center gap-2 rounded-md border border-white/60 bg-white/34 px-4 py-2 text-[11px] font-light text-[#616674] backdrop-blur-xl sm:flex">
-                    <Lock className="size-3 text-gray-500" strokeWidth={1.8} />
-                    polymatch.com
+                  <div className="hidden min-w-0 items-center gap-2 rounded-md border border-white/60 bg-white/34 px-4 py-2 text-[11px] font-medium text-[#000000] backdrop-blur-xl sm:flex">
+                    <Lock className="size-3 text-gray-800" strokeWidth={2} />
+                    polymatch.online
                   </div>
                   <div className="flex w-[54px] justify-end text-[#6B7280]">
-                    <Search className="size-4 text-gray-500" strokeWidth={1.8} />
+                    <Search className="size-4 text-gray-900" strokeWidth={1.8} />
                   </div>
                 </div>
 
@@ -289,12 +289,12 @@ export default async function HomePage() {
                   <div className="min-w-0">
                     <div className="flex flex-col gap-2.5 sm:flex-row sm:items-end sm:justify-between">
                       <div>
-                        <p className="text-[10px] font-light uppercase tracking-widest text-[#616674]">Tournament Runtime</p>
-                        <h2 className="mt-1 break-words text-[21px] font-light text-[#0A0A0F] min-[360px]:text-[22px]">polymatch.com</h2>
+                        <p className="text-[10px] font-normal uppercase tracking-widest text-[#616674]">Tournament Runtime</p>
+                        <h2 className=" break-words text-[21px] font-medium text-[#000] min-[360px]:text-[22px]">polymatch.online</h2>
                       </div>
-                      <div className="inline-flex w-fit items-center gap-2 rounded-md border border-white/60 bg-white/38 px-3 py-1 text-[10px] font-light text-[#4F46E5] backdrop-blur-xl">
-                        <ShieldCheck className="size-3" />
-                        Healthy
+                      <div className="inline-flex w-fit items-center gap-1 rounded-md border border-black/60 bg-blue/38 px-3 py-1 text-[10px] font-medium text-[#000] backdrop-blur-xl">
+                        <Radio className="size-3" />
+                        <span>Live</span>
                       </div>
                     </div>
 
@@ -302,34 +302,34 @@ export default async function HomePage() {
                     <div className="mt-5 grid grid-cols-2 gap-2">
                       <div className="min-w-0 rounded-lg border border-white/60 bg-white/38 p-3 backdrop-blur-xl transition-colors hover:border-white/90 min-[360px]:p-3.5">
                         <div className="flex items-start justify-between gap-2">
-                          <p className="text-[27px] font-light leading-none text-[#0A0A0F] min-[360px]:text-[31px]">{displayCounts.teams}</p>
-                          <span className="shrink-0 text-[10px] font-light text-[#4F46E5]">+32%</span>
+                          <p className="text-[27px] font-normal leading-none text-[#0A0A0F] min-[360px]:text-[31px]">{displayCounts.teams}</p>
+                    
                         </div>
-                        <p className="mt-2.5 truncate text-[10px] font-light uppercase tracking-widest text-[#616674]">Teams</p>
+                        <p className="shrink-0 font-medium  mt-2.5 text-[10px] font-light text-[10px] text-[#4F46E5] uppercase truncate">Teams</p>
                       </div>
                       
                       <div className="min-w-0 rounded-lg border border-white/60 bg-white/38 p-3 backdrop-blur-xl transition-colors hover:border-white/90 min-[360px]:p-3.5">
                         <div className="flex items-start justify-between gap-2">
-                          <p className="text-[27px] font-light leading-none text-[#0A0A0F] min-[360px]:text-[31px]">{displayCounts.matches}</p>
-                          <span className="shrink-0 text-[10px] font-light text-[#4F46E5]">+104</span>
+                          <p className="text-[27px] font-normal leading-none text-[#0A0A0F] min-[360px]:text-[31px]">{displayCounts.matches}</p>
+                          
                         </div>
-                        <p className="mt-2.5 truncate text-[10px] font-light uppercase tracking-widest text-[#616674]">Matches</p>
+                        <p className="shrink-0 font-medium  mt-2.5 text-[10px] font-light text-[10px] text-[#4F46E5] uppercase truncate">Matches</p>
                       </div>
 
                       <div className="min-w-0 rounded-lg border border-white/60 bg-white/38 p-3 backdrop-blur-xl transition-colors hover:border-white/90 min-[360px]:p-3.5">
                         <div className="flex items-start justify-between gap-2">
-                          <p className="text-[27px] font-light leading-none text-[#0A0A0F] min-[360px]:text-[31px]">{displayCounts.groups}</p>
-                          <span className="shrink-0 text-[10px] font-light text-[#92400E]">12 flags</span>
+                          <p className="text-[27px] font-normal leading-none text-[#0A0A0F] min-[360px]:text-[31px]">{displayCounts.groups}</p>
+                          
                         </div>
-                        <p className="mt-2.5 truncate text-[10px] font-light uppercase tracking-widest text-[#616674]">Groups</p>
+                        <p className="shrink-0 font-medium  mt-2.5 text-[10px] font-light text-[10px] text-[#4F46E5] uppercase truncate">Groups</p>
                       </div>
 
                       <div className="min-w-0 rounded-lg border border-white/60 bg-white/38 p-3 backdrop-blur-xl transition-colors hover:border-white/90 min-[360px]:p-3.5">
                         <div className="flex items-start justify-between gap-2">
-                          <p className="text-[27px] font-light leading-none text-[#0A0A0F] min-[360px]:text-[31px]">{displayCounts.users}</p>
-                          <span className="shrink-0 text-[10px] font-light text-[#4F46E5]">0 dead</span>
+                          <p className="text-[27px] font-normal leading-none text-[#0A0A0F] min-[360px]:text-[31px]">{displayCounts.users}+</p>
+                      
                         </div>
-                        <p className="mt-2.5 truncate text-[10px] font-light uppercase tracking-widest text-[#616674]">Players</p>
+                        <p className="shrink-0 font-medium  mt-2.5 text-[10px] font-light text-[10px] text-[#4F46E5] uppercase truncate">Currently Playing</p>
                       </div>
                     </div>
 
@@ -341,19 +341,9 @@ export default async function HomePage() {
                           <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md border backdrop-blur-xl border-white/60 bg-white/40 text-[#4F46E5]">
                             <Check className="size-4" strokeWidth={1.9} />
                           </span>
-                          <span className="min-w-0 truncate text-[12px] font-light text-[#374151]/90 min-[360px]:text-[13px]">Prediction engine is active</span>
+                          <span className="min-w-0 truncate text-[12px] font-normal text-[#374151]/90 min-[360px]:text-[13px]">Prediction engine is active</span>
                         </div>
-                        <span className="shrink-0 rounded-md border px-2 py-1 text-[10px] font-light backdrop-blur-xl border-white/60 bg-white/40 text-[#4F46E5]">Pass</span>
-                      </div>
-
-                      <div className="flex items-center justify-between gap-2.5 border-b border-white/60 px-3 py-2.5 last:border-b-0 min-[360px]:gap-3 min-[360px]:px-4">
-                        <div className="flex min-w-0 items-center gap-3">
-                          <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md border backdrop-blur-xl border-white/60 bg-white/40 text-[#92400E]">
-                            <AlertTriangle className="size-4" strokeWidth={1.9} />
-                          </span>
-                          <span className="min-w-0 truncate text-[12px] font-light text-[#374151]/90 min-[360px]:text-[13px]">Score pipeline needs attention</span>
-                        </div>
-                        <span className="shrink-0 rounded-md border px-2 py-1 text-[10px] font-light backdrop-blur-xl border-white/60 bg-white/40 text-[#92400E]">Review</span>
+                        <span className="shrink-0 rounded-md border px-2 py-1 text-[10px] font-medium backdrop-blur-xl border-white/60 bg-white/40 text-[#4F46E5]">Pass</span>
                       </div>
 
                       <div className="flex items-center justify-between gap-2.5 border-b border-white/60 px-3 py-2.5 last:border-b-0 min-[360px]:gap-3 min-[360px]:px-4">
@@ -361,9 +351,19 @@ export default async function HomePage() {
                           <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md border backdrop-blur-xl border-white/60 bg-white/40 text-[#4F46E5]">
                             <Check className="size-4" strokeWidth={1.9} />
                           </span>
-                          <span className="min-w-0 truncate text-[12px] font-light text-[#374151]/90 min-[360px]:text-[13px]">League rankings returned healthy responses</span>
+                          <span className="min-w-0 truncate text-[12px] font-normal text-[#374151]/90 min-[360px]:text-[13px]">Prediction flow is working </span>
                         </div>
-                        <span className="shrink-0 rounded-md border px-2 py-1 text-[10px] font-light backdrop-blur-xl border-white/60 bg-white/40 text-[#4F46E5]">Pass</span>
+                        <span className="shrink-0 rounded-md border px-2 py-1 text-[10px] font-medium backdrop-blur-xl border-white/60 bg-white/40 text-[#4F46E5]">Pass</span>
+                      </div>
+
+                      <div className="flex items-center justify-between gap-2.5 border-b border-white/60 px-3 py-2.5 last:border-b-0 min-[360px]:gap-3 min-[360px]:px-4">
+                        <div className="flex min-w-0 items-center gap-3">
+                          <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md border backdrop-blur-xl border-white/60 bg-white/40 text-[#4F46E5]">
+                            <Check className="size-4" strokeWidth={1.9} />
+                          </span>
+                          <span className="min-w-0 truncate text-[12px] font-normal text-[#374151]/90 min-[360px]:text-[13px]">League rankings is updated </span>
+                        </div>
+                        <span className="shrink-0 rounded-md border px-2 py-1 text-[10px] font-medium backdrop-blur-xl border-white/60 bg-white/40 text-[#4F46E5]">Pass</span>
                       </div>
 
                     </div>
