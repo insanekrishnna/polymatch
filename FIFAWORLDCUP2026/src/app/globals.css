@@ -83,7 +83,7 @@
     
     /* Global Apple Cinematic Background */
     background-color: #ffffff;
-    background-image: linear-gradient(180deg, #ffffff 0%, #ffffff 30%, rgba(255,255,255,0) 85%), url('/green.jpg');
+       background-image: linear-gradient(180deg, #ffffff 0%, #ffffff 30%, rgba(255,255,255,0) 85%), url('/green.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;

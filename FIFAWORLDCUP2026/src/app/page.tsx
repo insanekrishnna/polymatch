@@ -243,7 +243,7 @@ export default async function HomePage() {
                 <Link href={primaryHref} className={buttonVariants({ size: "lg" }) + " gap-1"}>
                   {primaryLabel} <ArrowRight className="size-4" />
                 </Link>
-                <Link href={secondaryHref} className={buttonVariants({ size: "lg", variant: "outline" })}>
+                <Link href={secondaryHref} className={buttonVariants({ size: "lg", variant: "outline" }) + " !text-black"}>
                   {secondaryLabel}
                 </Link>
               </div>
