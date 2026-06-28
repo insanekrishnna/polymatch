@@ -15,6 +15,10 @@ import {
   Trophy,
   Users,
   Zap,
+  Lock,
+  Search,
+  Check,
+  AlertTriangle,
   type LucideIcon,
 } from "lucide-react";
 import type { ReactNode } from "react";
@@ -215,12 +219,12 @@ export default async function HomePage() {
 
       <section className="relative min-h-[calc(100vh-4rem)]">
         <div className="relative z-10 mx-auto flex max-w-[1400px] items-start pt-5 pb-20 px-6">
-          <div className="grid w-full items-center gap-10 lg:gap-16 lg:grid-cols-[40%_60%] xl:grid-cols-[45%_55%]">
+          <div className="grid w-full items-center gap-10 lg:gap-16 lg:grid-cols-[4fr_6fr] xl:grid-cols-[45fr_55fr]">
             
             {/* Left Side Typography */}
             <div className="max-w-xl text-left">
               <div className="animate-on-scroll mb-4 flex items-center gap-3 text-sm font-medium text-gray-700 tracking-wide uppercase ">
-                <span className="inline-flex items-center gap-2 rounded-full bg-black/5 border border-black/10 px-4 py-2 text-xs font-medium text-gray-700 backdrop-blur-md transition-colors hover:bg-black/10 hover:border-black/20">
+                <span className="inline-flex items-center gap-2 rounded-full bg-black/2 border border-black/10 px-4 py-2 text-xs font-medium text-gray-800  transition-colors hover:bg-black/10 hover:border-black/20">
                   <span className="size-1.5 rounded-full bg-primary" />
                   <span>World Cup 2026</span>
                 </span>
@@ -231,12 +235,12 @@ export default async function HomePage() {
                 <span className="text-accent-gradient">Win the pool.</span>
               </h1>
               
-              <p className="animate-on-scroll mt-8 max-w-[400px] text-[17px] font-light leading-relaxed text-gray-600">
+              <p className="animate-on-scroll mt-7 max-w-[400px] text-[17px] font-normal leading-relaxed text-gray-800">
                 Ship score picks, brackets, private leagues and live rankings in one clean interface built for serious tournament players.
               </p>
               
-              <div className="animate-on-scroll mt-10 flex gap-4">
-                <Link href={primaryHref} className={buttonVariants({ size: "lg" }) + " gap-2"}>
+              <div className="animate-on-scroll mt-6 flex gap-5">
+                <Link href={primaryHref} className={buttonVariants({ size: "lg" }) + " gap-1"}>
                   {primaryLabel} <ArrowRight className="size-4" />
                 </Link>
                 <Link href={secondaryHref} className={buttonVariants({ size: "lg", variant: "outline" })}>
@@ -244,7 +248,7 @@ export default async function HomePage() {
                 </Link>
               </div>
               
-              <div className="animate-on-scroll mt-16 flex gap-10">
+              <div className="  animate-on-scroll mt-16 flex gap-10">
                 <div className="flex flex-col">
                   <span className="text-[28px] font-light text-gray-900">{displayCounts.teams}</span>
                   <span className="text-[11px] font-medium text-gray-500 capitalize mt-1 tracking-wide">Teams</span>
@@ -260,73 +264,110 @@ export default async function HomePage() {
               </div>
             </div>
 
-            {/* Right: Glass Card */}
+            {/* Right: Glass Card matching Metamaxx reference */}
             <div className="animate-on-scroll">
-              <div className="relative glass-panel glass-hover-effect p-6 sm:p-8">
+              <div className="relative overflow-hidden rounded-xl border border-white/60 bg-white/38 text-left shadow-[0_28px_90px_rgba(15,23,42,0.12)] backdrop-blur-2xl">
                 
-                <div className="flex flex-col">
-                  
-                  {/* Header */}
-                  <div className="flex items-center justify-between mb-6 pr-2">
-                    <div className="flex items-center gap-2">
-                      <span className="size-2 rounded-full bg-primary" />
-                      <span className="text-[11px] font-semibold uppercase tracking-widest text-gray-600">
-                        Tournament Runtime
-                      </span>
-                    </div>
-                    <span className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
-                      Live
-                    </span>
+                {/* Top Mac Bar */}
+                <div className="flex items-center justify-between gap-3 border-b border-white/55 bg-white/30 px-3 py-2.5 backdrop-blur-xl min-[360px]:gap-4 min-[360px]:px-4 sm:px-5">
+                  <div className="flex items-center gap-2">
+                    <span className="h-2 w-2 rounded-full bg-[#FF605C]/80"></span>
+                    <span className="h-2 w-2 rounded-full bg-[#FFBD44]/80"></span>
+                    <span className="h-2 w-2 rounded-full bg-[#00CA4E]/80"></span>
                   </div>
+                  <div className="hidden min-w-0 items-center gap-2 rounded-md border border-white/60 bg-white/34 px-4 py-2 text-[11px] font-light text-[#616674] backdrop-blur-xl sm:flex">
+                    <Lock className="size-3 text-gray-500" strokeWidth={1.8} />
+                    polymatch.com
+                  </div>
+                  <div className="flex w-[54px] justify-end text-[#6B7280]">
+                    <Search className="size-4 text-gray-500" strokeWidth={1.8} />
+                  </div>
+                </div>
 
-                  {/* Stats Grid */}
-                  <div className="grid grid-cols-2 gap-4 mb-8">
-                    {/* Teams Card */}
-                    <div className="flex flex-col bg-white/60 backdrop-blur-md rounded-[20px] p-5 sm:p-6 border border-white/60 shadow-sm transition-transform hover:scale-[1.02]">
-                      <div className="flex justify-between items-start mb-6">
-                        <span className="text-[40px] sm:text-[46px] font-light text-gray-900 leading-none tracking-tight">{displayCounts.teams}</span>
-                        <span className="text-[11px] font-medium text-primary bg-primary/10 px-2 py-0.5 rounded-full">+32</span>
+                {/* Main Content Area */}
+                <div className="grid gap-3 p-3 min-[360px]:gap-3.5 min-[360px]:p-3.5 sm:p-5">
+                  <div className="min-w-0">
+                    <div className="flex flex-col gap-2.5 sm:flex-row sm:items-end sm:justify-between">
+                      <div>
+                        <p className="text-[10px] font-light uppercase tracking-widest text-[#616674]">Tournament Runtime</p>
+                        <h2 className="mt-1 break-words text-[21px] font-light text-[#0A0A0F] min-[360px]:text-[22px]">polymatch.com</h2>
                       </div>
-                      <span className="text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.15em] text-gray-500">Teams</span>
+                      <div className="inline-flex w-fit items-center gap-2 rounded-md border border-white/60 bg-white/38 px-3 py-1 text-[10px] font-light text-[#4F46E5] backdrop-blur-xl">
+                        <ShieldCheck className="size-3" />
+                        Healthy
+                      </div>
                     </div>
-                    
-                    {/* Matches Card */}
-                    <div className="flex flex-col bg-white/60 backdrop-blur-md rounded-[20px] p-5 sm:p-6 border border-white/60 shadow-sm transition-transform hover:scale-[1.02]">
-                      <div className="flex justify-between items-start mb-6">
-                        <span className="text-[40px] sm:text-[46px] font-light text-gray-900 leading-none tracking-tight">{displayCounts.matches}</span>
-                        <span className="text-[11px] font-medium text-primary bg-primary/10 px-2 py-0.5 rounded-full">+104</span>
+
+                    {/* Stats Grid */}
+                    <div className="mt-5 grid grid-cols-2 gap-2">
+                      <div className="min-w-0 rounded-lg border border-white/60 bg-white/38 p-3 backdrop-blur-xl transition-colors hover:border-white/90 min-[360px]:p-3.5">
+                        <div className="flex items-start justify-between gap-2">
+                          <p className="text-[27px] font-light leading-none text-[#0A0A0F] min-[360px]:text-[31px]">{displayCounts.teams}</p>
+                          <span className="shrink-0 text-[10px] font-light text-[#4F46E5]">+32%</span>
+                        </div>
+                        <p className="mt-2.5 truncate text-[10px] font-light uppercase tracking-widest text-[#616674]">Teams</p>
                       </div>
-                      <span className="text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.15em] text-gray-500">Matches</span>
+                      
+                      <div className="min-w-0 rounded-lg border border-white/60 bg-white/38 p-3 backdrop-blur-xl transition-colors hover:border-white/90 min-[360px]:p-3.5">
+                        <div className="flex items-start justify-between gap-2">
+                          <p className="text-[27px] font-light leading-none text-[#0A0A0F] min-[360px]:text-[31px]">{displayCounts.matches}</p>
+                          <span className="shrink-0 text-[10px] font-light text-[#4F46E5]">+104</span>
+                        </div>
+                        <p className="mt-2.5 truncate text-[10px] font-light uppercase tracking-widest text-[#616674]">Matches</p>
+                      </div>
+
+                      <div className="min-w-0 rounded-lg border border-white/60 bg-white/38 p-3 backdrop-blur-xl transition-colors hover:border-white/90 min-[360px]:p-3.5">
+                        <div className="flex items-start justify-between gap-2">
+                          <p className="text-[27px] font-light leading-none text-[#0A0A0F] min-[360px]:text-[31px]">{displayCounts.groups}</p>
+                          <span className="shrink-0 text-[10px] font-light text-[#92400E]">12 flags</span>
+                        </div>
+                        <p className="mt-2.5 truncate text-[10px] font-light uppercase tracking-widest text-[#616674]">Groups</p>
+                      </div>
+
+                      <div className="min-w-0 rounded-lg border border-white/60 bg-white/38 p-3 backdrop-blur-xl transition-colors hover:border-white/90 min-[360px]:p-3.5">
+                        <div className="flex items-start justify-between gap-2">
+                          <p className="text-[27px] font-light leading-none text-[#0A0A0F] min-[360px]:text-[31px]">{displayCounts.users}</p>
+                          <span className="shrink-0 text-[10px] font-light text-[#4F46E5]">0 dead</span>
+                        </div>
+                        <p className="mt-2.5 truncate text-[10px] font-light uppercase tracking-widest text-[#616674]">Players</p>
+                      </div>
                     </div>
-                    
-                    {/* Groups Card */}
-                    <div className="flex flex-col bg-white/60 backdrop-blur-md rounded-[20px] p-5 sm:p-6 border border-white/60 shadow-sm transition-transform hover:scale-[1.02]">
-                      <div className="flex justify-between items-start mb-6">
-                        <span className="text-[40px] sm:text-[46px] font-light text-gray-900 leading-none tracking-tight">{displayCounts.groups}</span>
-                        <span className="text-[11px] font-medium text-orange-600 bg-orange-600/10 px-2 py-0.5 rounded-full">12 active</span>
+
+                    {/* System Status Lists */}
+                    <div className="mt-3.5 overflow-hidden rounded-lg border border-white/60 bg-white/34 backdrop-blur-xl">
+                      
+                      <div className="flex items-center justify-between gap-2.5 border-b border-white/60 px-3 py-2.5 last:border-b-0 min-[360px]:gap-3 min-[360px]:px-4">
+                        <div className="flex min-w-0 items-center gap-3">
+                          <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md border backdrop-blur-xl border-white/60 bg-white/40 text-[#4F46E5]">
+                            <Check className="size-4" strokeWidth={1.9} />
+                          </span>
+                          <span className="min-w-0 truncate text-[12px] font-light text-[#374151]/90 min-[360px]:text-[13px]">Prediction engine is active</span>
+                        </div>
+                        <span className="shrink-0 rounded-md border px-2 py-1 text-[10px] font-light backdrop-blur-xl border-white/60 bg-white/40 text-[#4F46E5]">Pass</span>
                       </div>
-                      <span className="text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.15em] text-gray-500">Groups</span>
-                    </div>
-                    
-                    {/* Players Card */}
-                    <div className="flex flex-col bg-white/60 backdrop-blur-md rounded-[20px] p-5 sm:p-6 border border-white/60 shadow-sm transition-transform hover:scale-[1.02]">
-                      <div className="flex justify-between items-start mb-6">
-                        <span className="text-[40px] sm:text-[46px] font-light text-gray-900 leading-none tracking-tight">{displayCounts.users}</span>
-                        <span className="text-[11px] font-medium text-blue-600 bg-blue-600/10 px-2 py-0.5 rounded-full">+12%</span>
+
+                      <div className="flex items-center justify-between gap-2.5 border-b border-white/60 px-3 py-2.5 last:border-b-0 min-[360px]:gap-3 min-[360px]:px-4">
+                        <div className="flex min-w-0 items-center gap-3">
+                          <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md border backdrop-blur-xl border-white/60 bg-white/40 text-[#92400E]">
+                            <AlertTriangle className="size-4" strokeWidth={1.9} />
+                          </span>
+                          <span className="min-w-0 truncate text-[12px] font-light text-[#374151]/90 min-[360px]:text-[13px]">Score pipeline needs attention</span>
+                        </div>
+                        <span className="shrink-0 rounded-md border px-2 py-1 text-[10px] font-light backdrop-blur-xl border-white/60 bg-white/40 text-[#92400E]">Review</span>
                       </div>
-                      <span className="text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.15em] text-gray-500">Players</span>
+
+                      <div className="flex items-center justify-between gap-2.5 border-b border-white/60 px-3 py-2.5 last:border-b-0 min-[360px]:gap-3 min-[360px]:px-4">
+                        <div className="flex min-w-0 items-center gap-3">
+                          <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md border backdrop-blur-xl border-white/60 bg-white/40 text-[#4F46E5]">
+                            <Check className="size-4" strokeWidth={1.9} />
+                          </span>
+                          <span className="min-w-0 truncate text-[12px] font-light text-[#374151]/90 min-[360px]:text-[13px]">League rankings returned healthy responses</span>
+                        </div>
+                        <span className="shrink-0 rounded-md border px-2 py-1 text-[10px] font-light backdrop-blur-xl border-white/60 bg-white/40 text-[#4F46E5]">Pass</span>
+                      </div>
+
                     </div>
                   </div>
-
-                  {/* System Status Lists */}
-                  <div className="flex flex-col flex-1 bg-white/60 backdrop-blur-md rounded-[20px] p-5 sm:p-6 border border-white/60 shadow-sm">
-                    <div className="flex flex-col gap-2">
-                      <StatusRow label="Prediction engine" status="active" />
-                      <StatusRow label="Score pipeline" status="active" />
-                      <StatusRow label="League rankings" status="active" />
-                    </div>
-                  </div>
-
                 </div>
               </div>
             </div>
