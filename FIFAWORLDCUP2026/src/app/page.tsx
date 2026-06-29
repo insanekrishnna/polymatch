@@ -653,7 +653,7 @@ export default async function HomePage() {
 
       <div className="gradient-line opacity-50" />
 
-      <section className="pt-6 sm:pt-8 pb-20 sm:pb-24">
+      <section className="pt-6 sm:pt-8 pb-6 sm:pb-8">
         <div className="mx-auto max-w-6xl px-4">
           <div className="border-b border-border/40 pb-3 mb-4 text-left">
             <h2 className="font-display text-xl font-bold">
@@ -684,7 +684,24 @@ export default async function HomePage() {
 
 
 
-      <section className="pt-20 sm:pt-24 pb-6 sm:pb-8">
+      <section className="pt-6 pb-6 text-center sm:pt-8 sm:pb-8">
+        <div className="mx-auto max-w-4xl px-4">
+          <div className="animate-on-scroll rounded-xl border border-white/50 bg-white/30 px-4 py-10 backdrop-blur-2xl shadow-sm mx-auto sm:px-4 sm:py-10">
+            <h2 className="text-3xl font-semibold leading-tight text-gray-900 sm:text-4xl">
+              Make your 2026 pool feel like <br /> a premium product.
+            </h2>
+
+            <div className="mt-8 flex justify-center">
+              <Link href={primaryHref} className={buttonVariants({ size: "lg" }) + " gap-2"}>
+                {primaryLabel}
+                <ArrowRight className="size-4" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="pt-6 pb-20 sm:pt-8 sm:pb-24">
         <div className="mx-auto max-w-3xl px-4">
           <div className="mb-4 text-left">
             <h2 className="font-display text-xl font-bold">
@@ -706,22 +723,6 @@ export default async function HomePage() {
                 </p>
               </details>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="pt-6 pb-20 text-center sm:pt-8 sm:pb-24">
-        <div className="mx-auto max-w-3xl px-4">
-
-          <h2 className="animate-on-scroll mt-6 text-3xl font-semibold leading-tight sm:text-4xl">
-            Make your 2026 pool feel like <br /> a premium product.
-          </h2>
-
-          <div className="animate-on-scroll mt-8">
-            <Link href={primaryHref} className={buttonVariants({ size: "lg" }) + " gap-2"}>
-              {primaryLabel}
-              <ArrowRight className="size-4" />
-            </Link>
           </div>
         </div>
       </section>
