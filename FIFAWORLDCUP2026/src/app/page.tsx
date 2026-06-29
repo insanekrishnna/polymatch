@@ -2,6 +2,7 @@ import Link from "next/link";
 import {
   ArrowRight,
   Braces,
+  Calendar,
   CalendarClock,
   CalendarDays,
   CheckCircle2,
@@ -31,6 +32,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { Countdown } from "@/components/countdown";
 import { ComputeOrbScene } from "@/components/compute-orb-scene";
 import { Flag } from "@/components/flag";
+import { EDITIONS, type Edition, teamName } from "@/lib/world-cups";
 
 const FEATURE_ROWS = [
   {
@@ -247,6 +249,87 @@ function TeamToken({ code }: { code: string }) {
   );
 }
 
+function EditionCard({ e }: { e: Edition }) {
+  return (
+    <li className="group relative overflow-hidden rounded-xl border border-white/50 bg-white/30 backdrop-blur-2xl transition-colors hover:border-white/80 shadow-sm">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-4 font-display text-[5rem] font-black leading-none text-foreground/[0.06]"
+      >
+        {e.year}
+      </div>
+
+      <div className="relative space-y-3 p-4">
+        <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-muted-foreground">
+          <Badge variant="secondary" className="text-[10px]">
+            #{e.editionNumber}
+          </Badge>
+          <span className="font-semibold text-foreground">{e.year}</span>
+          <span>-</span>
+          <MapPin className="size-3" />
+          {e.hosts.map((h, i) => (
+            <span key={h} className="inline-flex items-center gap-1">
+              <Flag code={h} size="xs" />
+              <span>{teamName(h)}</span>
+              {i < e.hosts.length - 1 && (
+                <span className="mx-0.5 text-muted-foreground/60">+</span>
+              )}
+            </span>
+          ))}
+        </div>
+
+        <div className="flex items-center gap-2">
+          <div className="flex min-w-0 flex-1 items-center justify-end gap-2 text-right">
+            <div className="min-w-0">
+              <div className="text-[10px] font-bold uppercase tracking-widest text-[color:var(--gold)]">
+                Champion
+              </div>
+              <div className="truncate font-display text-sm font-semibold">
+                {teamName(e.champion)}
+              </div>
+            </div>
+            <Flag
+              code={e.champion}
+              size="lg"
+              className="!bg-contain !bg-center ring-2 ring-[color:var(--gold)]/40"
+            />
+          </div>
+
+          <div className="flex shrink-0 flex-col items-center px-1">
+            <div className="font-display text-lg font-bold tabular-nums">
+              {e.scoreHome} <span className="text-muted-foreground">-</span>{" "}
+              {e.scoreAway}
+            </div>
+            {e.decision && (
+              <span className="rounded-sm border border-border/60 px-1 text-[9px] uppercase tracking-widest text-muted-foreground">
+                {e.decision === "aet" ? "a.e.t." : `pen ${e.penalties}`}
+              </span>
+            )}
+          </div>
+
+          <div className="flex min-w-0 flex-1 items-center gap-2">
+            <Flag code={e.runnerUp} size="lg" className="!bg-contain !bg-center" />
+            <div className="min-w-0">
+              <div className="text-[10px] uppercase tracking-widest text-muted-foreground">
+                Runner-up
+              </div>
+              <div className="truncate font-display text-sm font-semibold">
+                {teamName(e.runnerUp)}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {e.note && (
+          <p className="border-l-2 border-border/60 pl-2 text-[11px] italic text-muted-foreground">
+            {e.note}
+          </p>
+        )}
+      </div>
+    </li>
+  );
+}
+
 export default async function HomePage() {
   const [user, firstMatch, counts] = await Promise.all([
     getCurrentUser(),
@@ -257,6 +340,7 @@ export default async function HomePage() {
     getCounts(),
   ]);
 
+  const editionsDesc = [...EDITIONS].sort((a, b) => b.year - a.year);
   const siteUrl =
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
     "http://localhost:3000";
@@ -538,7 +622,19 @@ export default async function HomePage() {
         </div>
       </section>
 
-
+      <section className="relative z-10 mx-auto w-full max-w-[1400px] px-4 sm:px-6 md:px-8 pb-10">
+        <div className="border-b border-border/40 px-4 py-3 mb-6">
+          <h2 className="flex items-center gap-2 font-display text-xl font-bold">
+            <Calendar className="size-5 text-gray-500" strokeWidth={1} />
+            All Editions
+          </h2>
+        </div>
+        <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {editionsDesc.slice(0, 6).map((e) => (
+            <EditionCard key={e.year} e={e} />
+          ))}
+        </ul>
+      </section>
 
       <section className="py-20 sm:py-24">
         <div className="mx-auto max-w-6xl px-4">
