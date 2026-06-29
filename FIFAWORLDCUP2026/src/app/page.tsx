@@ -701,7 +701,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="pt-6 pb-20 sm:pt-8 sm:pb-24">
+      <section className="pt-6 pb-10 sm:pt-8 sm:pb-12">
         <div className="mx-auto max-w-6xl px-4">
           <div className="mb-4 text-left">
             <h2 className="font-display text-xl font-bold">
@@ -727,47 +727,49 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <div className="pt-8 pb-12 sm:pt-12 sm:pb-20 px-4">
-        <footer className="mx-auto max-w-6xl rounded-[2rem] border border-white/50 bg-white/30 backdrop-blur-3xl shadow-xl relative overflow-hidden">
+      <div className="pt-2 pb-6 sm:pt-2 sm:pb-2 px-2">
+        <footer className="mx-auto max-w-6xl rounded-3xl border border-white/50 bg-white/30 backdrop-blur-3xl shadow-xl relative overflow-hidden">
           {/* Subtle gradient ambient glows inside the footer */}
           <div className="absolute -top-32 -right-32 size-96 bg-primary/20 blur-[100px] rounded-full pointer-events-none" />
           <div className="absolute -bottom-32 -left-32 size-96 bg-green-200/40 blur-[100px] rounded-full pointer-events-none" />
 
-          <div className="relative z-10 px-8 py-12 md:px-16 md:py-16 grid gap-12 lg:grid-cols-[2fr_repeat(3,1fr)]">
+          <div className="relative z-10 px-6 py-8 md:px-10 md:py-10 grid gap-10 lg:grid-cols-[2fr_3fr]">
             <div className="flex flex-col justify-between">
               <div>
-                <div className="flex items-center gap-3 font-display text-2xl font-bold text-gray-900">
-                  <span className="grid size-10 place-items-center rounded-xl border border-primary/20 bg-primary/10 text-primary">
-                    <Trophy className="size-5" />
+                <div className="flex items-center gap-3 font-display text-xl font-bold text-gray-900">
+                  <span className="grid size-8 place-items-center rounded-lg border border-primary/20 bg-primary/10 text-primary">
+                    <Trophy className="size-4" />
                   </span>
                   Polymatch
                 </div>
-                <p className="mt-6 max-w-xs text-sm leading-relaxed text-gray-700 font-medium">
+                <p className="mt-4 max-w-xs text-xs leading-relaxed text-gray-700 font-medium">
                   A premium World Cup prediction platform. Experience brackets, scorelines, leagues, and rankings like never before.
                 </p>
               </div>
             </div>
             
-            {Object.entries(FOOTER_LINKS).map(([title, links]) => (
-              <div key={title}>
-                <h3 className="text-sm font-bold uppercase tracking-wider text-gray-900">{title}</h3>
-                <ul className="mt-6 space-y-4">
-                  {links.map((link) => (
-                    <li key={link.href}>
-                      <Link
-                        href={link.href}
-                        className="text-sm font-semibold text-gray-600 transition-colors duration-200 hover:text-primary"
-                      >
-                        {link.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+            <div className="grid grid-cols-3 gap-4 sm:gap-8">
+              {Object.entries(FOOTER_LINKS).map(([title, links]) => (
+                <div key={title}>
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-gray-900">{title}</h3>
+                  <ul className="mt-4 space-y-3">
+                    {links.map((link) => (
+                      <li key={link.href}>
+                        <Link
+                          href={link.href}
+                          className="text-xs font-semibold text-gray-600 transition-colors duration-200 hover:text-primary"
+                        >
+                          {link.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
           </div>
 
-          <div className="relative z-10 mx-8 md:mx-16 border-t border-white/30 py-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm font-medium text-gray-500">
+          <div className="relative z-10 mx-6 md:mx-10 border-t border-white/30 py-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-medium text-gray-500">
             <p>© 2026 Polymatch. Built for World Cup pools.</p>
             <div className="flex gap-8">
               <div className="group relative">
