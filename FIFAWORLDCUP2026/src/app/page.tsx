@@ -32,13 +32,6 @@ import { Countdown } from "@/components/countdown";
 import { ComputeOrbScene } from "@/components/compute-orb-scene";
 import { Flag } from "@/components/flag";
 
-const PROOF_ITEMS = [
-  "Private league runtime",
-  "104 fixture pipeline",
-  "48-team state graph",
-  "Live scoring workers",
-];
-
 const FEATURE_ROWS = [
   {
     eyebrow: "Prediction Engine",
@@ -545,20 +538,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="border-b border-border py-8">
-        <div className="mx-auto max-w-6xl px-4">
-          <div className="animate-on-scroll grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {PROOF_ITEMS.map((item) => (
-              <div
-                key={item}
-                className="rounded-lg border border-border bg-card px-4 py-3 text-center text-sm font-medium text-muted-foreground"
-              >
-                {item}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       <section className="py-20 sm:py-24">
         <div className="mx-auto max-w-6xl px-4">
