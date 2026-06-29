@@ -638,12 +638,12 @@ export default async function HomePage() {
 
       <section className="py-20 sm:py-24">
         <div className="mx-auto max-w-6xl px-4">
-          <div className="border-b border-border/40 pb-3 mb-8 text-left">
+          <div className="border-b border-border/40 pb-3 mb-4 text-left">
             <h2 className="font-display text-xl font-bold">
               Designed for the full prediction lifecycle.
             </h2>
           </div>
-          <div className="mt-8 grid gap-6 md:grid-cols-2">
+          <div className="mt-6 grid gap-6 md:grid-cols-2">
             {FEATURE_ROWS.map((feature) => (
               <FeatureRow key={feature.title} {...feature} />
             ))}
@@ -655,12 +655,12 @@ export default async function HomePage() {
 
       <section className="py-20 sm:py-24">
         <div className="mx-auto max-w-6xl px-4">
-          <div className="border-b border-border/40 pb-3 mb-8 text-left">
+          <div className="border-b border-border/40 pb-3 mb-4 text-left">
             <h2 className="font-display text-xl font-bold">
               A premium shell around the tournament tools users need.
             </h2>
           </div>
-          <div className="animate-on-scroll animate-stagger mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          <div className="animate-on-scroll animate-stagger mt-6 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
             {BENEFITS.map((benefit) => {
               const Icon = benefit.icon;
               return (
