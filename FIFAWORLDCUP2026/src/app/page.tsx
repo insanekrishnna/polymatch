@@ -266,26 +266,28 @@ export default async function HomePage() {
 
             {/* Right: Glass Card matching Metamaxx reference */}
             <div className="animate-on-scroll">
-              <div className="relative overflow-hidden rounded-xl border border-white/60 bg-white/38 text-left  backdrop-blur-2xl">
+              <div className="relative overflow-hidden rounded-xl border border-white/60 bg-white/38 text-left backdrop-blur-2xl">
                 
                 {/* Top Mac Bar */}
-                <div className="flex items-center justify-between gap-3 border-b border-white/55 bg-white/30 px-3 py-2.5 backdrop-blur-xl min-[360px]:gap-4 min-[360px]:px-4 sm:px-5">
-                  <div className="flex items-center gap-2">
-                    <span className="h-2 w-2 rounded-full bg-[#FF605C]/80"></span>
-                    <span className="h-2 w-2 rounded-full bg-[#FFBD44]/80"></span>
-                    <span className="h-2 w-2 rounded-full bg-[#00CA4E]/80"></span>
+                <div className="grid grid-cols-3 items-center border-b border-white/55 bg-white/30 px-4 py-2.5 backdrop-blur-xl sm:px-5">
+                  <div className="flex items-center gap-1.5">
+                    <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F56]"></span>
+                    <span className="h-2.5 w-2.5 rounded-full bg-[#FFBD2E]"></span>
+                    <span className="h-2.5 w-2.5 rounded-full bg-[#27C93F]"></span>
                   </div>
-                  <div className="hidden min-w-0 items-center gap-2 rounded-md border border-white/60 bg-white/34 px-4 py-2 text-[11px] font-medium text-[#000000] backdrop-blur-xl sm:flex">
-                    <Lock className="size-3 text-gray-800" strokeWidth={2} />
-                    polymatch.online
+                  <div className="flex justify-center">
+                    <div className="hidden items-center gap-2 rounded-md border border-white/60 bg-white/34 px-4 py-1.5 text-[11px] font-medium text-[#000000] backdrop-blur-xl sm:flex">
+                      <Lock className="size-3 text-gray-800" strokeWidth={2} />
+                      polymatch.online
+                    </div>
                   </div>
-                  <div className="flex w-[54px] justify-end text-[#6B7280]">
+                  <div className="flex justify-end text-[#6B7280]">
                     <Search className="size-4 text-gray-900" strokeWidth={1.8} />
                   </div>
                 </div>
 
                 {/* Main Content Area */}
-                <div className="grid gap-3 p-3 min-[360px]:gap-3.5 min-[360px]:p-3.5 sm:p-5">
+                <div className="grid gap-3 p-4 sm:p-5 min-[360px]:gap-3.5">
                   <div className="min-w-0">
                     <div className="flex flex-col gap-2.5 sm:flex-row sm:items-end sm:justify-between">
                       <div>
