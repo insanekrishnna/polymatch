@@ -218,37 +218,37 @@ export default async function HomePage() {
       />
 
       <section className="relative min-h-[calc(100vh-4rem)]">
-        <div className="relative z-10 mx-auto flex max-w-[1400px] items-start pt-5 pb-20 px-6">
-          <div className="grid w-full items-center gap-10 lg:gap-16 lg:grid-cols-[4fr_6fr] xl:grid-cols-[45fr_55fr]">
+        <div className="relative z-10 mx-auto flex max-w-[1400px] items-start pt-5 pb-20 px-4 sm:px-6 md:px-8">
+          <div className="grid w-full items-center gap-10 md:gap-12 lg:gap-16 grid-cols-1 lg:grid-cols-[4fr_6fr] xl:grid-cols-[45fr_55fr]">
             
             {/* Left Side Typography */}
-            <div className="max-w-xl text-left">
-              <div className="animate-on-scroll mb-4 flex items-center gap-3 text-sm font-medium text-gray-700 tracking-wide uppercase ">
-                <span className="inline-flex items-center gap-2 rounded-full bg-black/2 border border-black/10 px-4 py-2 text-xs font-medium text-gray-800  transition-colors hover:bg-black/10 hover:border-black/20">
+            <div className="w-full max-w-xl mx-auto lg:mx-0 text-left">
+              <div className="animate-on-scroll mb-4 flex items-center justify-start gap-3 text-sm font-medium text-gray-700 tracking-wide uppercase">
+                <span className="inline-flex items-center gap-2 rounded-full bg-black/2 border border-black/10 px-4 py-2 text-xs font-medium text-gray-800 transition-colors hover:bg-black/10 hover:border-black/20">
                   <span className="size-1.5 rounded-full bg-primary" />
                   <span>World Cup 2026</span>
                 </span>
               </div>
               
-              <h1 className="animate-on-scroll text-4xl sm:text-5xl lg:text-5xl font-semibold text-gray-900 leading-[1.05] tracking-tight">
+              <h1 className="animate-on-scroll text-[2.5rem] leading-[1.1] sm:text-5xl lg:text-[3.5rem] xl:text-6xl font-semibold text-gray-900 tracking-tight">
                 Predict. <span className="text-accent-gradient">Compete.</span><br/>
                 <span className="text-accent-gradient">Win the pool.</span>
               </h1>
               
-              <p className="animate-on-scroll mt-7 max-w-[400px] text-[17px] font-normal leading-relaxed text-gray-800">
+              <p className="animate-on-scroll mt-5 sm:mt-7 max-w-[400px] text-base sm:text-[17px] font-normal leading-relaxed text-gray-800">
                 Ship score picks, brackets, private leagues and live rankings in one clean interface built for serious tournament players.
               </p>
               
-              <div className="animate-on-scroll mt-6 flex gap-5">
-                <Link href={primaryHref} className={buttonVariants({ size: "lg" }) + " gap-1"}>
+              <div className="animate-on-scroll mt-6 flex flex-wrap gap-4 sm:gap-5">
+                <Link href={primaryHref} className={buttonVariants({ size: "lg" }) + " w-full sm:w-auto gap-1"}>
                   {primaryLabel} <ArrowRight className="size-4" />
                 </Link>
-                <Link href={secondaryHref} className={buttonVariants({ size: "lg", variant: "outline" }) + " !text-black"}>
+                <Link href={secondaryHref} className={buttonVariants({ size: "lg", variant: "outline" }) + " w-full sm:w-auto !text-black"}>
                   {secondaryLabel}
                 </Link>
               </div>
               
-              <div className="animate-on-scroll mt-23 flex flex-wrap items-center justify-between gap-4 sm:justify-start rounded-xl border border-white/50 bg-white/20 px-5 py-3 backdrop-blur-xl w-fit">
+              <div className="animate-on-scroll mt-12 sm:mt-23 flex flex-wrap items-center justify-between gap-4 sm:justify-start rounded-xl border border-white/50 bg-white/20 px-5 py-3 backdrop-blur-xl w-full sm:w-fit">
                 <div className="flex flex-col">
                   <span className="text-2xl sm:text-[28px] font-light text-gray-900 leading-none">{displayCounts.teams}</span>
                   <span className="text-[10px] sm:text-[11px] font-medium text-gray-600 uppercase mt-1.5 tracking-wider">Teams</span>
@@ -265,8 +265,8 @@ export default async function HomePage() {
             </div>
 
             {/* Right: Glass Card matching Metamaxx reference */}
-            <div className="animate-on-scroll">
-              <div className="relative overflow-hidden rounded-xl border border-white/60 bg-white/38 text-left backdrop-blur-2xl">
+            <div className="animate-on-scroll w-full max-w-2xl mx-auto lg:max-w-none">
+              <div className="relative overflow-hidden rounded-xl border border-white/60 bg-white/38 text-left backdrop-blur-2xl w-full">
                 
                 {/* Top Mac Bar */}
                 <div className="grid grid-cols-3 items-center border-b border-white/55 bg-white/30 px-4 py-2.5 backdrop-blur-xl sm:px-5">
