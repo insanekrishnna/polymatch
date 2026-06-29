@@ -25,6 +25,7 @@ export default async function PredictionsIndexPage() {
 
   const [groups, predictions] = await Promise.all([
     prisma.group.findMany({
+      where: { letter: { notIn: ["D", "E", "F", "G", "H", "I", "J"] } },
       orderBy: { letter: "asc" },
       include: {
         teams: { orderBy: { name: "asc" } },

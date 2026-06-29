@@ -23,9 +23,9 @@ export async function Navbar() {
   const user = await getCurrentUser();
 
   const publicItems: MobileNavItem[] = [
-    { href: "/fixtures",    label: "Schedule",    iconName: "CalendarDays" },
-    { href: "/news",        label: "News",        iconName: "Newspaper"    },
     { href: "/history",     label: "History",     iconName: "History"      },
+    { href: "/news",        label: "News",        iconName: "Newspaper"    },
+    { href: "/fixtures",    label: "Schedule",    iconName: "CalendarDays" },
   ];
 
   const userItems: MobileNavItem[] = user
@@ -61,9 +61,9 @@ export async function Navbar() {
 
           {/* ── Desktop nav links (center) ── */}
           <nav className="hidden items-center gap-6 md:flex">
-            <NavLink href="/fixtures" label="Schedule" />
-            <NavLink href="/news"     label="News"     />
             <NavLink href="/history"  label="History"  />
+            <NavLink href="/news"     label="News"     />
+            <NavLink href="/fixtures" label="Schedule" />
             {user && (
               <>
                 <NavLink href="/predictions" label="Predictions" />
