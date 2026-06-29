@@ -62,7 +62,7 @@
   --border: var(--glass-border);
   --input: rgba(0, 0, 0, 0.05);
   --ring: rgba(0, 0, 0, 0.2);
-  --radius: 1.25rem;
+  --radius: 0.55rem;
 }
 
 @layer base {
