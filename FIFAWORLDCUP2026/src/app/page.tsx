@@ -682,40 +682,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="border-y border-border bg-[var(--bg-secondary)] py-12">
-        <div className="mx-auto grid max-w-6xl gap-4 px-4 sm:grid-cols-2 lg:grid-cols-4">
-          <Stat icon={<Users className="size-5" />} value={displayCounts.users} label="Users" />
-          <Stat icon={<Goal className="size-5" />} value={displayCounts.matches} label="Matches" />
-          <Stat icon={<Trophy className="size-5" />} value={displayCounts.groups} label="Groups" />
-          <Stat icon={<Sparkles className="size-5" />} value={displayCounts.teams} label="Teams" />
-        </div>
-      </section>
 
-      <section className="py-20 sm:py-24">
-        <div className="mx-auto max-w-6xl px-4">
-          <SectionIntro
-            eyebrow="Signals"
-            title="Built for groups that take the tournament seriously."
-            body="The product keeps the competitive layer readable for admins, power users and casual friends in the same league."
-          />
-          <div className="animate-on-scroll animate-stagger mt-12 grid gap-5 lg:grid-cols-3">
-            {TESTIMONIALS.map((item) => (
-              <figure
-                key={item.name}
-                className="rounded-lg border border-border bg-card p-6"
-              >
-                <blockquote className="text-base leading-7 text-foreground">
-                  "{item.quote}"
-                </blockquote>
-                <figcaption className="mt-5 flex items-center gap-2 text-sm text-muted-foreground">
-                  <CheckCircle2 className="size-4 text-gray-500" strokeWidth={1} />
-                  {item.name}
-                </figcaption>
-              </figure>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <section className="border-y border-border bg-[var(--bg-secondary)] py-20 sm:py-24">
         <div className="mx-auto max-w-3xl px-4">
@@ -840,23 +807,16 @@ function FeatureRow({
   flip?: boolean;
 }) {
   return (
-    <div
-      className={`animate-on-scroll grid items-center gap-6 lg:grid-cols-2 ${
-        flip ? "lg:[&>div:first-child]:order-2" : ""
-      }`}
-    >
-      <div className="rounded-xl border border-white/50 bg-white/30 p-4 backdrop-blur-2xl shadow-sm">
-        <div className="flex items-center gap-2 border-b border-white/20 pb-3 font-mono text-xs text-muted-foreground">
-          <Icon className="size-4 text-primary" strokeWidth={1.5} />
-          runtime.preview
-        </div>
-        <div className="mt-4 space-y-2 font-mono text-xs">
-          {terminal.map(([command, result]) => (
-            <CodeLine key={command} command={command} result={result} />
-          ))}
-        </div>
+    <div className="animate-on-scroll rounded-xl border border-white/50 bg-white/30 p-4 backdrop-blur-2xl shadow-sm w-full">
+      <div className="flex items-center gap-2 border-b border-white/20 pb-3 font-mono text-xs text-muted-foreground">
+        <Icon className="size-4 text-primary" strokeWidth={1.5} />
+        runtime.preview
       </div>
-      
+      <div className="mt-4 space-y-2 font-mono text-xs">
+        {terminal.map(([command, result]) => (
+          <CodeLine key={command} command={command} result={result} />
+        ))}
+      </div>
     </div>
   );
 }
