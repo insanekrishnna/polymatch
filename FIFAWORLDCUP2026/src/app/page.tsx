@@ -666,13 +666,13 @@ export default async function HomePage() {
               return (
                 <div
                   key={benefit.title}
-                  className="rounded-lg border border-border bg-card p-6 transition-colors duration-200 hover:border-[var(--border-hover)] hover:bg-secondary"
+                  className="rounded-xl border border-white/50 bg-white/30 p-4 backdrop-blur-2xl shadow-sm transition-colors duration-200 hover:border-white/80"
                 >
-                  <div className="grid size-10 place-items-center rounded-lg border border-primary/25 bg-transparent text-primary">
-                    <Icon className="size-5" strokeWidth={1.5} />
+                  <div className="flex items-center gap-2 border-b border-white/20 pb-2">
+                    <Icon className="size-4 text-gray-600" strokeWidth={1.5} />
+                    <h3 className="text-sm font-semibold text-gray-900">{benefit.title}</h3>
                   </div>
-                  <h3 className="mt-5 text-xl font-semibold">{benefit.title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-muted-foreground">
+                  <p className="mt-3 text-xs leading-5 text-gray-800">
                     {benefit.body}
                   </p>
                 </div>
