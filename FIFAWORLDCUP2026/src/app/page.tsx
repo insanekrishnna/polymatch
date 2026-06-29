@@ -636,7 +636,7 @@ export default async function HomePage() {
         </ul>
       </section>
 
-      <section className="py-20 sm:py-24">
+      <section className="pt-20 sm:pt-24 pb-6 sm:pb-8">
         <div className="mx-auto max-w-6xl px-4">
           <div className="border-b border-border/40 pb-3 mb-4 text-left">
             <h2 className="font-display text-xl font-bold">
@@ -651,9 +651,9 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <div className="gradient-line" />
+      <div className="gradient-line opacity-50" />
 
-      <section className="py-20 sm:py-24">
+      <section className="pt-6 sm:pt-8 pb-20 sm:pb-24">
         <div className="mx-auto max-w-6xl px-4">
           <div className="border-b border-border/40 pb-3 mb-4 text-left">
             <h2 className="font-display text-xl font-bold">
