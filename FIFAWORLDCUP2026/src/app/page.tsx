@@ -685,7 +685,7 @@ export default async function HomePage() {
 
 
       <section className="pt-6 pb-6 text-center sm:pt-8 sm:pb-8">
-        <div className="mx-auto max-w-4xl px-4">
+        <div className="mx-auto max-w-6xl px-4">
           <div className="animate-on-scroll rounded-xl border border-white/50 bg-white/30 px-4 py-10 backdrop-blur-2xl shadow-sm mx-auto sm:px-4 sm:py-10">
             <h2 className="text-3xl font-semibold leading-tight text-gray-900 sm:text-4xl">
               Make your 2026 pool feel like <br /> a premium product.
@@ -702,7 +702,7 @@ export default async function HomePage() {
       </section>
 
       <section className="pt-6 pb-20 sm:pt-8 sm:pb-24">
-        <div className="mx-auto max-w-3xl px-4">
+        <div className="mx-auto max-w-6xl px-4">
           <div className="mb-4 text-left">
             <h2 className="font-display text-xl font-bold">
               Why People Believe in Polymatch.
@@ -727,28 +727,85 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <footer className="border-t border-border bg-[var(--bg-secondary)]">
-        <div className="mx-auto grid max-w-6xl gap-8 px-4 py-10 md:grid-cols-[1.4fr_repeat(3,1fr)]">
-          <div>
-            <div className="flex items-center gap-2 font-semibold">
-              <span className="grid size-7 place-items-center rounded-md border border-primary/25 bg-primary text-primary-foreground">
-                <Trophy className="size-4" />
-              </span>
-              Polymatch
+      <div className="pt-8 pb-12 sm:pt-12 sm:pb-20 px-4">
+        <footer className="mx-auto max-w-6xl rounded-[2rem] border border-white/50 bg-white/30 backdrop-blur-3xl shadow-xl relative overflow-hidden">
+          {/* Subtle gradient ambient glows inside the footer */}
+          <div className="absolute -top-32 -right-32 size-96 bg-primary/20 blur-[100px] rounded-full pointer-events-none" />
+          <div className="absolute -bottom-32 -left-32 size-96 bg-green-200/40 blur-[100px] rounded-full pointer-events-none" />
+
+          <div className="relative z-10 px-8 py-12 md:px-16 md:py-16 grid gap-12 lg:grid-cols-[2fr_repeat(3,1fr)]">
+            <div className="flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-3 font-display text-2xl font-bold text-gray-900">
+                  <span className="grid size-10 place-items-center rounded-xl border border-primary/20 bg-primary/10 text-primary">
+                    <Trophy className="size-5" />
+                  </span>
+                  Polymatch
+                </div>
+                <p className="mt-6 max-w-xs text-sm leading-relaxed text-gray-700 font-medium">
+                  A premium World Cup prediction platform. Experience brackets, scorelines, leagues, and rankings like never before.
+                </p>
+              </div>
             </div>
-            <p className="mt-4 max-w-sm text-sm leading-6 text-muted-foreground">
-              A World Cup prediction platform for brackets, scorelines, leagues
-              and rankings.
-            </p>
+            
+            {Object.entries(FOOTER_LINKS).map(([title, links]) => (
+              <div key={title}>
+                <h3 className="text-sm font-bold uppercase tracking-wider text-gray-900">{title}</h3>
+                <ul className="mt-6 space-y-4">
+                  {links.map((link) => (
+                    <li key={link.href}>
+                      <Link
+                        href={link.href}
+                        className="text-sm font-semibold text-gray-600 transition-colors duration-200 hover:text-primary"
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
-          {Object.entries(FOOTER_LINKS).map(([title, links]) => (
-            <FooterColumn key={title} title={title} links={links} />
-          ))}
-        </div>
-        <div className="border-t border-border py-5 text-center text-sm text-muted-foreground">
-          © 2026 Polymatch. Built for World Cup pools.
-        </div>
-      </footer>
+
+          <div className="relative z-10 mx-8 md:mx-16 border-t border-white/30 py-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm font-medium text-gray-500">
+            <p>© 2026 Polymatch. Built for World Cup pools.</p>
+            <div className="flex gap-8">
+              <div className="group relative">
+                <Link href="#" className="hover:text-primary transition-colors">Privacy Policy</Link>
+                <div className="absolute bottom-full left-1/2 mb-3 w-56 -translate-x-1/2 scale-95 opacity-0 transition-all duration-300 group-hover:scale-100 group-hover:opacity-100 pointer-events-none">
+                  <div className="rounded-xl border border-white/50 bg-white/40 p-4 backdrop-blur-3xl shadow-xl">
+                    <p className="text-xs text-gray-900 font-medium leading-relaxed">
+                      Your data is securely stored and never sold. We use industry-standard encryption for all your predictions.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="group relative">
+                <Link href="#" className="hover:text-primary transition-colors">Terms of Service</Link>
+                <div className="absolute bottom-full left-1/2 mb-3 w-56 -translate-x-1/2 scale-95 opacity-0 transition-all duration-300 group-hover:scale-100 group-hover:opacity-100 pointer-events-none">
+                  <div className="rounded-xl border border-white/50 bg-white/40 p-4 backdrop-blur-3xl shadow-xl">
+                    <p className="text-xs text-gray-900 font-medium leading-relaxed">
+                      By using Polymatch, you agree to play fair. No automated bots or exploiting the scoring engine allowed.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="group relative">
+                <Link href="#" className="hover:text-primary transition-colors">Contact Us</Link>
+                <div className="absolute bottom-full right-0 md:left-1/2 mb-3 w-56 md:-translate-x-1/2 scale-95 opacity-0 transition-all duration-300 group-hover:scale-100 group-hover:opacity-100 pointer-events-none origin-bottom-right md:origin-bottom">
+                  <div className="rounded-xl border border-white/50 bg-white/40 p-4 backdrop-blur-3xl shadow-xl">
+                    <p className="text-xs text-gray-900 font-medium leading-relaxed">
+                      Need help setting up your league? Reach out to our 24/7 premium support team for immediate assistance.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
     </main>
   );
 }
@@ -904,31 +961,7 @@ function Stat({
   );
 }
 
-function FooterColumn({
-  title,
-  links,
-}: {
-  title: string;
-  links: { label: string; href: string }[];
-}) {
-  return (
-    <div>
-      <h3 className="text-sm font-semibold">{title}</h3>
-      <ul className="mt-4 space-y-2">
-        {links.map((link) => (
-          <li key={link.href}>
-            <Link
-              href={link.href}
-              className="text-sm text-muted-foreground transition-colors duration-150 hover:text-foreground"
-            >
-              {link.label}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
+
 
 async function getCounts() {
   const [teams, groups, matches, users] = await Promise.all([
