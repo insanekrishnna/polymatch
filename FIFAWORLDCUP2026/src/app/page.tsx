@@ -3,8 +3,10 @@ import {
   ArrowRight,
   Braces,
   CalendarClock,
+  CalendarDays,
   CheckCircle2,
   ChevronDown,
+  Clock,
   Goal,
   MapPin,
   Network,
@@ -21,6 +23,7 @@ import {
   AlertTriangle,
   type LucideIcon,
 } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 import type { ReactNode } from "react";
 import { prisma } from "@/lib/prisma";
 import { getCurrentUser } from "@/lib/session";
@@ -148,6 +151,108 @@ const FOOTER_LINKS = {
     { label: "Register", href: "/register" },
   ],
 };
+
+const FEATURED_DAYS = [
+  {
+    date: "30 June",
+    matches: [
+      {
+        home: "CIV",
+        away: "NOR",
+        time: "17:00 UTC",
+        venue: "AT&T Stadium",
+        city: "Arlington, Texas, USA",
+      },
+      {
+        home: "FRA",
+        away: "SWE",
+        time: "21:00 UTC",
+        venue: "MetLife Stadium",
+        city: "East Rutherford, New Jersey, USA",
+      },
+      {
+        home: "MEX",
+        away: "ECU",
+        time: "01:00 UTC (1 July)",
+        venue: "Estadio Azteca",
+        city: "Mexico City, Mexico",
+      }
+    ]
+  },
+  {
+    date: "1 July",
+    matches: [
+      {
+        home: "ENG",
+        away: "COD",
+        time: "16:00 UTC",
+        venue: "Mercedes Benz Stadium",
+        city: "Atlanta, Georgia, USA",
+      },
+      {
+        home: "BEL",
+        away: "SEN",
+        time: "20:00 UTC",
+        venue: "BMO Field",
+        city: "Toronto, Ontario, Canada",
+      },
+      {
+        home: "USA",
+        away: "BIH",
+        time: "00:00 UTC (2 July)",
+        venue: "Levi's Stadium",
+        city: "Santa Clara, California, USA",
+      }
+    ]
+  },
+  {
+    date: "2 July",
+    matches: [
+      {
+        home: "ESP",
+        away: "AUT",
+        time: "19:00 UTC",
+        venue: "Hard Rock Stadium",
+        city: "Miami Gardens, Florida, USA",
+      },
+      {
+        home: "POR",
+        away: "CRO",
+        time: "23:00 UTC",
+        venue: "GEHA Field at Arrowhead Stadium",
+        city: "Kansas City, Missouri, USA",
+      },
+      {
+        home: "SUI",
+        away: "ALG",
+        time: "03:00 UTC (3 July)",
+        venue: "AT&T Stadium",
+        city: "Arlington, Texas, USA",
+      }
+    ]
+  }
+];
+
+function TeamToken({ code }: { code: string }) {
+  if (code === "TBD") {
+    return (
+      <div className="flex items-center gap-1.5 rounded-full border border-border/40 px-2 py-1">
+        <div className="size-3 rounded-full border border-dashed border-muted-foreground/30 bg-muted/30" />
+        <span className="font-mono text-[10px] font-semibold text-muted-foreground">
+          TBD
+        </span>
+      </div>
+    );
+  }
+  return (
+    <div className="flex items-center gap-1.5 rounded-full border border-border/40 bg-background/50 px-2 py-1">
+      <Flag code={code} size="xs" />
+      <span className="font-mono text-[10px] font-semibold text-foreground">
+        {code}
+      </span>
+    </div>
+  );
+}
 
 export default async function HomePage() {
   const [user, firstMatch, counts] = await Promise.all([
@@ -375,6 +480,68 @@ export default async function HomePage() {
             </div>
 
           </div>
+        </div>
+      </section>
+
+      {/* Featured Schedule Board */}
+      <section className="relative z-10 mx-auto w-full max-w-[1400px] px-4 sm:px-6 md:px-8 pb-10">
+        <div className="border-b border-border/40 px-4 py-3">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+                <Radio className="size-3.5 text-gray-500" strokeWidth={1} />
+                featured schedule board
+              </div>
+              <h2 className="mt-1 font-display text-2xl font-bold">
+                World Cup 2026 kickoff windows
+              </h2>
+            </div>
+            <Badge className="bg-primary text-primary-foreground">
+              sample markets
+            </Badge>
+          </div>
+        </div>
+
+        <div className="grid gap-4 mt-6 lg:grid-cols-3 w-full">
+          {FEATURED_DAYS.map((day) => (
+            <Link href="/fixtures" key={day.date} className="block group">
+              <div className="rounded-xl border border-white/50 bg-white/30 p-4 backdrop-blur-2xl shadow-sm transition-all group-hover:border-white/80 group-hover:shadow-md cursor-pointer h-full flex flex-col">
+                <div className="flex items-center justify-between gap-3 mb-4">
+                  <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-gray-700 flex items-center gap-1.5">
+                    <CalendarDays className="size-3.5" />
+                    {day.date}
+                  </div>
+                  <div className="rounded-full bg-transparent px-2 py-0.5 font-mono text-[10px] font-semibold text-primary">
+                    3 Matches
+                  </div>
+                </div>
+                
+                <div className="flex flex-col gap-3 flex-1">
+                  {day.matches.map((match, idx) => (
+                    <div key={idx} className="rounded-lg border border-white/40 bg-white/40 p-3 backdrop-blur-sm">
+                      <div className="flex items-center justify-between">
+                        <TeamToken code={match.home} />
+                        <span className="font-display text-[10px] font-semibold text-gray-700">
+                          vs
+                        </span>
+                        <TeamToken code={match.away} />
+                      </div>
+                      <div className="mt-2.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-[10px] text-gray-700">
+                        <span className="inline-flex items-center gap-1">
+                          <Clock className="size-3" />
+                          {match.time}
+                        </span>
+                        <span className="inline-flex items-center gap-1 truncate max-w-[200px]">
+                          <MapPin className="size-3" />
+                          <span className="truncate">{match.venue}</span>
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Link>
+          ))}
         </div>
       </section>
 

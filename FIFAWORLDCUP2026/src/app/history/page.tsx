@@ -34,7 +34,7 @@ export default function HistoryPage() {
   return (
     <main className="mx-auto max-w-6xl flex-1 space-y-14 px-4 py-10">
       <section className="relative space-y-4 text-center">
-        <div className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-card/70 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground backdrop-blur">
+        <div className="inline-flex items-center gap-2 rounded-full border border-white/50 bg-white/30 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-gray-700 backdrop-blur-2xl shadow-sm">
           <Trophy className="size-3.5 text-[color:var(--gold)]" />
           <span>1930 - 2026</span>
         </div>
@@ -92,7 +92,7 @@ export default function HistoryPage() {
 function Podium({ titles }: { titles: TitleCount[] }) {
   const [first, second, third] = titles;
   return (
-    <div className="grid grid-cols-3 items-end gap-2 rounded-xl border border-border/60 bg-card/60 p-4 backdrop-blur">
+    <div className="grid grid-cols-3 items-end gap-2 rounded-xl border border-white/50 bg-white/30 p-4 backdrop-blur-2xl shadow-sm">
       <Pedestal rank={2} data={second} height="h-24" color="var(--silver)" />
       <Pedestal rank={1} data={first} height="h-32" color="var(--gold)" />
       <Pedestal rank={3} data={third} height="h-20" color="var(--bronze)" />
@@ -110,7 +110,7 @@ function CurrentTournamentCard() {
   ];
 
   return (
-    <div className="rounded-xl border border-border/60 bg-card/60 p-4 backdrop-blur">
+    <div className="rounded-xl border border-white/50 bg-white/30 p-4 backdrop-blur-2xl shadow-sm">
       <div className="grid gap-4 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1.4fr)]">
         <div className="space-y-4">
           <div className="flex flex-wrap items-center gap-2">
@@ -129,7 +129,7 @@ function CurrentTournamentCard() {
             {t.hosts.map((h) => (
               <span
                 key={h}
-                className="inline-flex items-center gap-1.5 rounded-md border border-border/60 bg-background/40 px-2 py-1 text-xs"
+                className="inline-flex items-center gap-1.5 rounded-md border border-white/40 bg-white/40 px-2 py-1 text-xs backdrop-blur-sm"
               >
                 <Flag code={h} size="xs" />
                 {teamName(h)}
@@ -141,7 +141,7 @@ function CurrentTournamentCard() {
             {stats.map((s) => (
               <div
                 key={s.label}
-                className="rounded-md border border-border/60 bg-background/40 px-3 py-2"
+                className="rounded-md border border-white/40 bg-white/40 px-3 py-2 backdrop-blur-sm"
               >
                 <div className="font-display text-xl font-bold tabular-nums">
                   {s.value}
@@ -214,7 +214,7 @@ function InfoBlock({
   children: React.ReactNode;
 }) {
   return (
-    <div className="rounded-md border border-border/60 bg-background/40 p-3 text-sm">
+    <div className="rounded-md border border-white/40 bg-white/40 p-3 text-sm backdrop-blur-sm">
       <div className="mb-2 text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">
         {title}
       </div>
@@ -271,7 +271,7 @@ function Pedestal({
 
 function TitlesList({ titles }: { titles: TitleCount[] }) {
   return (
-    <ol className="divide-y divide-border/40 rounded-xl border border-border/60 bg-card/60 px-1 backdrop-blur">
+    <ol className="divide-y divide-border/20 rounded-xl border border-white/50 bg-white/30 px-1 backdrop-blur-2xl shadow-sm">
       {titles.map((t, i) => (
         <li key={t.code} className="flex items-center gap-3 px-3 py-2.5">
           <span className="w-5 text-center font-mono text-xs font-semibold text-muted-foreground">
@@ -300,7 +300,7 @@ function HostsList({ hosts }: { hosts: HostCount[] }) {
       {hosts.map((h) => (
         <li
           key={h.code}
-          className="flex items-center gap-2.5 rounded-md border border-border/60 bg-card/60 px-3 py-2 backdrop-blur"
+          className="flex items-center gap-2.5 rounded-md border border-white/40 bg-white/40 px-3 py-2 backdrop-blur-sm shadow-sm"
         >
           <Flag code={h.code} size="md" />
           <div className="min-w-0 flex-1">
@@ -322,7 +322,7 @@ function HostsList({ hosts }: { hosts: HostCount[] }) {
 
 function EditionCard({ e }: { e: Edition }) {
   return (
-    <li className="group relative overflow-hidden rounded-xl border border-border/60 bg-card/60 backdrop-blur transition-colors hover:border-primary/30">
+    <li className="group relative overflow-hidden rounded-xl border border-white/50 bg-white/30 backdrop-blur-2xl transition-colors hover:border-white/80 shadow-sm">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-4 font-display text-[5rem] font-black leading-none text-foreground/[0.06]"

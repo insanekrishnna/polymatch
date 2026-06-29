@@ -157,7 +157,7 @@ export default async function FixturesPage({
       </header>
 
       {/* Filters */}
-      <div className="mb-6 space-y-3 rounded-xl border border-border/60 bg-card/60 p-4 backdrop-blur">
+      <div className="mb-6 space-y-3 rounded-xl border border-white/50 bg-white/30 p-4 backdrop-blur-2xl shadow-sm">
         <FilterRow label="Stage">
           <FilterChip href={hrefWith({ stage, country, teamCode }, { stage: undefined })} active={!stage}>
             All
@@ -270,7 +270,7 @@ function ScheduleFallback({ hasFilters }: { hasFilters: boolean }) {
   return (
     <div className="space-y-5">
       {hasFilters && (
-        <div className="rounded-xl border border-border/60 bg-card/60 p-4 text-sm text-muted-foreground backdrop-blur">
+        <div className="rounded-xl border border-white/50 bg-white/30 p-4 text-sm text-gray-700 backdrop-blur-2xl shadow-sm">
           No official fixtures match the current filters, so this board is showing
           sample World Cup 2026 schedule markets.
         </div>
@@ -298,7 +298,7 @@ function ScheduleFallback({ hasFilters }: { hasFilters: boolean }) {
           {FEATURED_FIXTURES.map((fixture) => (
             <div
               key={fixture.phase}
-              className="rounded-xl border border-border/60 bg-white/55 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.9)]"
+              className="rounded-xl border border-white/50 bg-white/30 p-4 backdrop-blur-2xl shadow-sm"
             >
               <div className="flex items-center justify-between gap-3">
                 <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
@@ -315,7 +315,7 @@ function ScheduleFallback({ hasFilters }: { hasFilters: boolean }) {
                 </span>
                 <TeamToken code={fixture.teams[1]} />
               </div>
-              <div className="mt-4 rounded-lg border border-border/50 bg-background/45 p-3">
+              <div className="mt-4 rounded-lg border border-white/40 bg-white/40 p-3 backdrop-blur-sm">
                 <div className="font-display text-base font-semibold">
                   {fixture.market}
                 </div>
@@ -343,7 +343,7 @@ function ScheduleFallback({ hasFilters }: { hasFilters: boolean }) {
         {SCHEDULE_MARKETS.map((item) => (
           <div
             key={item.label}
-            className="rounded-xl border border-border/60 bg-card/60 p-4 backdrop-blur"
+            className="rounded-xl border border-white/50 bg-white/30 p-4 backdrop-blur-2xl shadow-sm"
           >
             <div className="flex items-center gap-2 text-muted-foreground">
               <ShieldCheck className="size-4 text-gray-500" strokeWidth={1} />
@@ -359,7 +359,7 @@ function ScheduleFallback({ hasFilters }: { hasFilters: boolean }) {
         ))}
       </section>
 
-      <section className="rounded-2xl border border-border/60 bg-card/60 p-4 backdrop-blur">
+      <section className="rounded-2xl border border-white/50 bg-white/30 p-4 backdrop-blur-2xl shadow-sm">
         <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
           <Flame className="size-3.5 text-[color:var(--gold)]" />
           schedule angles
@@ -389,7 +389,7 @@ function TeamToken({ code }: { code: string }) {
 
 function Angle({ title, text }: { title: string; text: string }) {
   return (
-    <div className="rounded-xl border border-border/50 bg-background/45 p-3">
+    <div className="rounded-xl border border-white/40 bg-white/40 p-3 backdrop-blur-sm">
       <div className="font-display text-sm font-semibold">{title}</div>
       <p className="mt-1 text-xs leading-5 text-muted-foreground">{text}</p>
     </div>
@@ -454,7 +454,7 @@ function DayHeader({
   const dayLabel = formatInTz(ref, tz, { day: "2-digit", month: "long" });
 
   return (
-    <div className="sticky top-14 z-10 -mx-4 mb-3 flex items-center gap-2 border-b border-border/40 bg-background/80 px-4 py-2 backdrop-blur sm:top-14">
+    <div className="sticky top-14 z-10 -mx-4 mb-3 flex items-center gap-2 border-b border-white/30 bg-white/20 px-4 py-2 backdrop-blur-xl sm:top-14 shadow-sm">
       <CalendarDays className="size-3.5 text-muted-foreground" />
       <h2 className="text-sm font-semibold uppercase tracking-wider">
         <span className="capitalize">{weekday}</span>,{" "}
@@ -498,8 +498,8 @@ function MatchCard({
   });
 
   return (
-    <li className="overflow-hidden rounded-lg border border-border/60 bg-card/60 backdrop-blur transition-colors hover:border-primary/30">
-      <div className="flex items-center justify-between border-b border-border/40 bg-background/30 px-3 py-1.5 text-[10px] text-muted-foreground">
+    <li className="overflow-hidden rounded-lg border border-white/50 bg-white/30 backdrop-blur-2xl transition-colors hover:border-white/80 shadow-sm">
+      <div className="flex items-center justify-between border-b border-white/30 bg-white/40 px-3 py-1.5 text-[10px] text-gray-700 backdrop-blur-sm">
         <div className="flex items-center gap-2">
           <span className="font-mono font-semibold text-foreground/80">
             #{m.matchNumber}
@@ -550,7 +550,7 @@ function MatchCard({
         />
       </div>
 
-      <div className="flex items-center gap-2 border-t border-border/40 bg-background/30 px-3 py-1.5 text-[10px] text-muted-foreground">
+      <div className="flex items-center gap-2 border-t border-white/30 bg-white/40 px-3 py-1.5 text-[10px] text-gray-700 backdrop-blur-sm">
         <MapPin className="size-3" />
         <span className="truncate">
           {m.venue} · {m.city}
