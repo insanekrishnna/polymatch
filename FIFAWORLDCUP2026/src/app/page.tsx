@@ -638,12 +638,12 @@ export default async function HomePage() {
 
       <section className="py-20 sm:py-24">
         <div className="mx-auto max-w-6xl px-4">
-          <SectionIntro
-            eyebrow="Workloads"
-            title="Designed for the full prediction lifecycle."
-            body="The interface treats a World Cup pool like an operating system: inputs, state, rankings and reviews all stay close together."
-          />
-          <div className="mt-12 space-y-8">
+          <div className="border-b border-border/40 pb-3 mb-8 text-left">
+            <h2 className="font-display text-xl font-bold">
+              Designed for the full prediction lifecycle.
+            </h2>
+          </div>
+          <div className="mt-8 grid gap-6 md:grid-cols-2">
             {FEATURE_ROWS.map((feature) => (
               <FeatureRow key={feature.title} {...feature} />
             ))}
@@ -655,11 +655,11 @@ export default async function HomePage() {
 
       <section className="py-20 sm:py-24">
         <div className="mx-auto max-w-6xl px-4">
-          <SectionIntro
-            eyebrow="Infrastructure"
-            title="A premium shell around the tournament tools users need."
-            body="Every surface is quiet, dark and dense enough for repeated use, with green reserved for action, status and active highlights."
-          />
+          <div className="border-b border-border/40 pb-3 mb-8 text-left">
+            <h2 className="font-display text-xl font-bold">
+              A premium shell around the tournament tools users need.
+            </h2>
+          </div>
           <div className="animate-on-scroll animate-stagger mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
             {BENEFITS.map((benefit) => {
               const Icon = benefit.icon;
@@ -845,22 +845,18 @@ function FeatureRow({
         flip ? "lg:[&>div:first-child]:order-2" : ""
       }`}
     >
-      <div className="rounded-xl border border-white/50 bg-white/30 p-5 backdrop-blur-2xl shadow-sm">
-        <div className="flex items-center gap-2 border-b border-white/20 pb-4 font-mono text-sm text-muted-foreground">
+      <div className="rounded-xl border border-white/50 bg-white/30 p-4 backdrop-blur-2xl shadow-sm">
+        <div className="flex items-center gap-2 border-b border-white/20 pb-3 font-mono text-xs text-muted-foreground">
           <Icon className="size-4 text-primary" strokeWidth={1.5} />
           runtime.preview
         </div>
-        <div className="mt-5 space-y-3 font-mono text-sm">
+        <div className="mt-4 space-y-2 font-mono text-xs">
           {terminal.map(([command, result]) => (
             <CodeLine key={command} command={command} result={result} />
           ))}
         </div>
       </div>
-      <div className="rounded-xl border border-white/50 bg-white/30 p-6 backdrop-blur-2xl shadow-sm">
-        <div className="section-eyebrow text-gray-700">{eyebrow}</div>
-        <h3 className="mt-5 text-3xl font-semibold leading-tight text-gray-900">{title}</h3>
-        <p className="mt-5 text-base leading-7 text-gray-800">{body}</p>
-      </div>
+      
     </div>
   );
 }
@@ -875,7 +871,7 @@ function CodeLine({
   accent?: boolean;
 }) {
   return (
-    <div className="flex items-center justify-between gap-4 rounded-md border border-white/30 bg-white/40 px-3 py-2 backdrop-blur-sm">
+    <div className="flex items-center justify-between gap-4 rounded-md border border-white/30 bg-white/40 px-3 py-1.5 backdrop-blur-sm">
       <span className="min-w-0 truncate text-gray-700">
         <span className="text-primary font-bold">$</span> {command}
       </span>
