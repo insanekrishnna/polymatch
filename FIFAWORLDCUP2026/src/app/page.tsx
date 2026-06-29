@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Brand } from "@/components/brand";
 import {
   ArrowRight,
   Braces,
@@ -736,12 +737,7 @@ export default async function HomePage() {
           <div className="relative z-10 px-6 py-8 md:px-10 md:py-10 grid gap-10 lg:grid-cols-[2fr_3fr]">
             <div className="flex flex-col justify-between">
               <div>
-                <div className="flex items-center gap-3 font-display text-xl font-bold text-gray-900">
-                  <span className="grid size-8 place-items-center rounded-lg border border-primary/20 bg-primary/10 text-primary">
-                    <Trophy className="size-4" />
-                  </span>
-                  Polymatch
-                </div>
+                <Brand size="lg" className="text-xl text-gray-900" />
                 <p className="mt-4 max-w-xs text-xs leading-relaxed text-gray-700 font-medium">
                   A premium World Cup prediction platform. Experience brackets, scorelines, leagues, and rankings like never before.
                 </p>
