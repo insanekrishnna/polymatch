@@ -684,7 +684,7 @@ export default async function HomePage() {
 
 
 
-      <section className="border-y border-border bg-[var(--bg-secondary)] py-20 sm:py-24">
+      <section className="pt-20 sm:pt-24 pb-6 sm:pb-8">
         <div className="mx-auto max-w-3xl px-4">
           <div className="mb-4 text-left">
             <h2 className="font-display text-xl font-bold">
@@ -695,13 +695,13 @@ export default async function HomePage() {
             {FAQS.map((item) => (
               <details
                 key={item.question}
-                className="group rounded-lg border border-border bg-background p-5 open:border-[var(--border-hover)]"
+                className="group rounded-xl border border-white/50 bg-white/30 p-4 backdrop-blur-2xl shadow-sm transition-colors duration-200 open:border-white/80"
               >
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left font-medium">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left text-sm font-semibold text-gray-900">
                   {item.question}
-                  <ChevronDown className="size-4 text-muted-foreground transition-transform duration-150 group-open:rotate-180" />
+                  <ChevronDown className="size-4 text-gray-600 transition-transform duration-150 group-open:rotate-180" />
                 </summary>
-                <p className="mt-4 text-sm leading-6 text-muted-foreground">
+                <p className="mt-3 text-xs leading-5 text-gray-800">
                   {item.answer}
                 </p>
               </details>
@@ -710,18 +710,13 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="py-20 text-center sm:py-24">
+      <section className="pt-6 pb-20 text-center sm:pt-8 sm:pb-24">
         <div className="mx-auto max-w-3xl px-4">
-          <div className="section-eyebrow animate-on-scroll mx-auto">
-            Final whistle ready
-          </div>
-          <h2 className="animate-on-scroll mt-6 text-4xl font-semibold leading-tight sm:text-5xl">
-            Make your 2026 pool feel like a premium product.
+
+          <h2 className="animate-on-scroll mt-6 text-3xl font-semibold leading-tight sm:text-4xl">
+            Make your 2026 pool feel like <br /> a premium product.
           </h2>
-          <p className="animate-on-scroll mx-auto mt-5 max-w-xl text-base leading-7 text-muted-foreground">
-            Start with predictions, invite your league and let the leaderboard
-            carry the tournament from opening match to final.
-          </p>
+
           <div className="animate-on-scroll mt-8">
             <Link href={primaryHref} className={buttonVariants({ size: "lg" }) + " gap-2"}>
               {primaryLabel}
