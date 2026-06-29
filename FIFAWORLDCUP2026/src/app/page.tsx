@@ -105,19 +105,19 @@ const TESTIMONIALS = [
 
 const FAQS = [
   {
-    question: "Does the redesign change scoring or prediction logic?",
+    question: "Are Polymatch predictions guaranteed to be 100% accurate?",
     answer:
-      "No. The UI changes keep backend logic, database calls and existing routes intact.",
+      "Our predictions are data driven, transparent, and continuously improved using statistics and match analysis.",
   },
   {
-    question: "Can users still manage private leagues?",
+    question: "How does Polymatch generate match predictions accurately?",
     answer:
-      "Yes. The existing league routes, invite codes and ranking pages are preserved in the navigation.",
+      "We combine historical performance, team form, player statistics, and advanced analytics to provide informed predictions, not random guesses.",
   },
   {
-    question: "Is this built for mobile?",
+    question: "Why should I trust Polymatch over other prediction platforms?",
     answer:
-      "Yes. The layout collapses to single-column sections, full-width CTAs and the existing mobile sheet navigation.",
+      "Polymatch prioritizes transparency, real time insights, and data backed analysis to help users make smarter sports predictions confidently.",
   },
 ];
 
@@ -686,12 +686,12 @@ export default async function HomePage() {
 
       <section className="border-y border-border bg-[var(--bg-secondary)] py-20 sm:py-24">
         <div className="mx-auto max-w-3xl px-4">
-          <SectionIntro
-            eyebrow="FAQ"
-            title="The redesign is visual. The product stays familiar."
-            body="Core functionality remains mapped to the same routes, actions and database-backed views."
-          />
-          <div className="animate-on-scroll mt-10 space-y-3">
+          <div className="mb-4 text-left">
+            <h2 className="font-display text-xl font-bold">
+              Why People Believe in Polymatch.
+            </h2>
+          </div>
+          <div className="animate-on-scroll mt-5 space-y-3">
             {FAQS.map((item) => (
               <details
                 key={item.question}
