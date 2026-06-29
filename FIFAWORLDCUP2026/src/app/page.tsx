@@ -602,8 +602,8 @@ function FeatureRow({
         flip ? "lg:[&>div:first-child]:order-2" : ""
       }`}
     >
-      <div className="rounded-lg border border-border bg-card p-5">
-        <div className="flex items-center gap-2 border-b border-border pb-4 font-mono text-sm text-muted-foreground">
+      <div className="rounded-xl border border-white/50 bg-white/30 p-5 backdrop-blur-2xl shadow-sm">
+        <div className="flex items-center gap-2 border-b border-white/20 pb-4 font-mono text-sm text-muted-foreground">
           <Icon className="size-4 text-primary" strokeWidth={1.5} />
           runtime.preview
         </div>
@@ -613,10 +613,10 @@ function FeatureRow({
           ))}
         </div>
       </div>
-      <div className="rounded-lg border border-border bg-[rgba(17,17,17,0.72)] p-6">
-        <div className="section-eyebrow">{eyebrow}</div>
-        <h3 className="mt-5 text-3xl font-semibold leading-tight">{title}</h3>
-        <p className="mt-5 text-base leading-7 text-muted-foreground">{body}</p>
+      <div className="rounded-xl border border-white/50 bg-white/30 p-6 backdrop-blur-2xl shadow-sm">
+        <div className="section-eyebrow text-gray-700">{eyebrow}</div>
+        <h3 className="mt-5 text-3xl font-semibold leading-tight text-gray-900">{title}</h3>
+        <p className="mt-5 text-base leading-7 text-gray-800">{body}</p>
       </div>
     </div>
   );
@@ -632,11 +632,11 @@ function CodeLine({
   accent?: boolean;
 }) {
   return (
-    <div className="flex items-center justify-between gap-4 rounded-md border border-border bg-[var(--bg-secondary)] px-3 py-2">
-      <span className="min-w-0 truncate text-muted-foreground">
-        <span className="text-primary">$</span> {command}
+    <div className="flex items-center justify-between gap-4 rounded-md border border-white/30 bg-white/40 px-3 py-2 backdrop-blur-sm">
+      <span className="min-w-0 truncate text-gray-700">
+        <span className="text-primary font-bold">$</span> {command}
       </span>
-      <span className={accent ? "text-primary" : "text-foreground"}>{result}</span>
+      <span className={accent ? "text-primary font-medium" : "text-gray-800"}>{result}</span>
     </div>
   );
 }
