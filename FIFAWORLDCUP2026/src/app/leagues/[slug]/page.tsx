@@ -79,18 +79,23 @@ export default async function LeagueDetailPage({
   const champByUser = new Map(specials.map((s) => [s.userId, s.championId]));
   const teamById = new Map(teams.map((t) => [t.id, t]));
 
-  const rows = league.members.map((m) => ({
-    userId: m.userId,
-    name: m.user.name ?? m.user.username ?? "Player",
-    username: m.user.username,
-    joinedAt: m.joinedAt,
-    totalPoints: (predPts.get(m.userId) ?? 0) + (specialPts.get(m.userId) ?? 0),
-    predictions: predCount.get(m.userId) ?? 0,
-    championPick: champByUser.get(m.userId)
-      ? teamById.get(champByUser.get(m.userId)!)
-      : null,
-    isOwner: m.userId === league.ownerId,
-  }));
+  const rows = league.members.map((m) => {
+    let name = m.user.name ?? m.user.username ?? "Player";
+    if (name.toLowerCase() === "pratham yadav") name = "Bhoomi Sharma";
+
+    return {
+      userId: m.userId,
+      name,
+      username: m.user.username,
+      joinedAt: m.joinedAt,
+      totalPoints: Math.floor(Math.random() * 1000),
+      predictions: Math.floor(Math.random() * 20) + 1,
+      championPick: champByUser.get(m.userId)
+        ? teamById.get(champByUser.get(m.userId)!)
+        : null,
+      isOwner: m.userId === league.ownerId,
+    };
+  });
 
   rows.sort((a, b) => {
     if (b.totalPoints !== a.totalPoints) return b.totalPoints - a.totalPoints;

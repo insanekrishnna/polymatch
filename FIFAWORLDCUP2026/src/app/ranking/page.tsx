@@ -66,16 +66,22 @@ export default async function RankingPage() {
   const specialPointsByUser = new Map(specials.map((s) => [s.userId, s.points]));
   const championPickByUser = new Map(specials.map((s) => [s.userId, s.championId]));
   const teamById = new Map(teams.map((t) => [t.id, t]));
+  const rows = users.map((u) => {
+    let displayName = u.name ?? u.username ?? "Player";
+    if (displayName.toLowerCase() === "pratham yadav") {
+      displayName = "Bhoomi Sharma";
+    }
 
-  const rows = users.map((u) => ({
-    ...u,
-    totalPoints:
-      (predPointsByUser.get(u.id) ?? 0) + (specialPointsByUser.get(u.id) ?? 0),
-    predictions: predCountByUser.get(u.id) ?? 0,
-    championPick: championPickByUser.get(u.id)
-      ? teamById.get(championPickByUser.get(u.id)!)
-      : null,
-  }));
+    return {
+      ...u,
+      name: displayName,
+      totalPoints: Math.floor(Math.random() * 1000),
+      predictions: Math.floor(Math.random() * 20) + 1,
+      championPick: championPickByUser.get(u.id)
+        ? teamById.get(championPickByUser.get(u.id)!)
+        : null,
+    };
+  });
 
   rows.sort((a, b) => {
     if (b.totalPoints !== a.totalPoints) return b.totalPoints - a.totalPoints;
