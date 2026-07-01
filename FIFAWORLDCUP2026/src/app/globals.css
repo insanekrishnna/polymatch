@@ -89,6 +89,15 @@
     background-repeat: no-repeat;
   }
 
+  /* Hide scrollbar globally */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  html, body, * {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
   h1, h2, h3, h4, h5, h6 {
     /* Scale down headings by ~20-30% via clamp or custom classes later, but set crisp tracking globally */
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", system-ui, sans-serif;
